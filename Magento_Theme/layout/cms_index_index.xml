@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    
+    <body>
+        <!-- Remove Page Main Title -->
+        <referenceBlock name="page.main.title" remove="true"/>
+		
+		<!-- Home page hero banner -->
+		<referenceContainer name="before.content">
+            <!-- replaced with Page Builder -->
+            <!-- <block class="Magento\Framework\View\Element\Template" name="home.slider.main" before="-" template="Magento_Theme::theme-pages/home-hero-banner.phtml"/> -->
+        </referenceContainer>
+		
+		<referenceContainer name="content">
+            <!--<block class="Magento\Catalog\Block\Product\ListProduct" name="home.products.main" before="-" template="Magento_Catalog::product/product-slider.phtml"/> -->
+        </referenceContainer>
+		
+    </body>
+</page>

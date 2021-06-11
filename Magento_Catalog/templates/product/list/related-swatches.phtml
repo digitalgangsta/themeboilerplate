@@ -1,0 +1,72 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/* @var $block \Magento\Catalog\Block\Product\AbstractProduct */
+?>
+
+<?php
+switch ($type = $block->getType()) {
+
+    case 'related-rule':
+        if ($exist = $block->hasItems()) {
+            $type = 'related';
+            $class = $type;
+
+            $image = 'related_products_list';
+            $title = __('Related Products');
+            $items = $block->getAllItems();
+            $limit = $block->getPositionLimit();
+            $shuffle = (int) $block->isShuffled();
+            $canItemsAddToCart = $block->canItemsAddToCart();
+
+            $showAddTo = false;
+            $showCart = false;
+            $templateType = null;
+            $description = false;
+        }
+    break;
+
+    case 'related':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Related $block */
+        if ($exist = $block->getItems()->getSize()) {
+            $type = 'related';
+            $class = $type;
+
+            $image = 'related_products_list';
+            $title = __('Related Products');
+            $items = $block->getItems();
+            $limit = 0;
+            $shuffle = 0;
+            $canItemsAddToCart = $block->canItemsAddToCart();
+
+            $showAddTo = false;
+            $showCart = false;
+            $templateType = null;
+            $description = false;
+        }
+    break;
+}
+?>
+
+<?php if ($exist):?>
+<div class="related-swatches">
+    <ol class="swatch-attribute">
+    <?php foreach ($items as $_item): ?>
+        <li class="swatch-option color">
+            <?php 
+            // $_product = $block->getProduct();
+            //  /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('color')->getFrontend()->getValue($_product); ?>
+            <a href="<?= /* @escapeNotVerified */ $block->getProductUrl($_item) ?>" class="">
+                <?= $block->getImage($_item, $image)->toHtml() ?>
+            </a>
+            
+        </li>
+        <?php endforeach ?>
+    </ol>
+</div>
+<?php endif;?>

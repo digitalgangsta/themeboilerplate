@@ -1,0 +1,40 @@
+$price_default-font-size: 20px;
+$price_old-font-size: 14px;
+$price_spcial-font-size: 20px;
+
+$price_default-color: $colour_primary;
+$price_old-color: #ccc;
+$price_spcial-color: $colour_primary;
+
+
+/* ============================================ *
+ * General Price
+ * ============================================ */
+.price-box {
+  span {
+    line-height: 1;
+  }
+  .price-label {
+    @include visuallyhidden;
+  }
+  .price {
+    color: $price_default-color;
+    white-space: nowrap !important;
+    font-size: $price_default-font-size;
+  }
+  .special-price {
+    display: block;
+    color: $price_spcial-color;
+    .price {
+      font-size: $price_spcial-font-size;
+    }
+  }
+  .old-price {
+    display: block;
+    .price {
+        color: $price_old-color;
+        font-size: $price_old-font-size !important;
+        text-decoration: line-through;
+    }
+  }
+}

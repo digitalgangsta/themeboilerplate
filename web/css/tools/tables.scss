@@ -1,0 +1,63 @@
+/* ============================================ *
+ * Tables
+ * ============================================ */
+table   { 
+	border: 0 none;
+	empty-cells: show;
+	font-size: 100%;
+	width: 100%;
+	border-collapse: collapse;
+
+	> caption {
+	    @include visuallyhidden();
+	}
+
+	th { 
+		padding: 10px;
+		white-space: nowrap;
+		font-size: $font_size-md;
+		font-weight: bold;
+		border-bottom: $border-default;
+	}
+	tr {
+		&:nth-child(even) {
+			background-color: #eee;
+		}
+	}
+	td {
+		padding: 10px;
+		border-bottom: $border-default;
+	}
+}
+
+
+caption,th,td { vertical-align:top; text-align:left; font-weight:normal; }
+
+
+/* Data Table */
+.data.table {  }
+
+.data.table thead { 
+	/* background-color:#f2f2f2; */
+}
+
+.data.table tbody {
+
+}
+.data.table tfoot {}
+.data.table tr { float: none; }
+.data.table tr.first {}
+.data.table tr.last {}
+.data.table tr.odd {}
+.data.table tr
+.data.table tbody.odd {}
+.data.table tbody.odd td { border-width:0 1px; }
+.data.table tbody.even { background-color: #f6f6f6; }
+.data.table tbody.even td { border-width:0 1px; }
+.data.table tbody.odd tr.border td,
+.data.table tbody.even tr.border td { border-bottom-width:1px; }
+.data.table th .tax-flag { white-space:nowrap; font-weight:normal; }
+.data.table td.label,
+.data.table th.label { font-weight:bold; background-color: #f6f6f6; }
+.data.table td.value {}
+

@@ -1,0 +1,125 @@
+
+
+
+/* ============================================ *
+ * Common
+ * ============================================ */
+
+
+
+ 
+/* ============================================ *
+ * Category Toolbar
+ * ============================================ */
+
+
+
+/* ============================================ *
+ * Add to cart
+ * ============================================ */
+.box-tocart {
+    .fieldset {
+        display: flex;
+        flex-direction: columns;
+        .qty {
+            .label {}
+            .control {}
+        }
+    }
+}
+
+
+/* ============================================ *
+ * compare product
+ * ============================================ */
+#product-comparison{
+	border:$border-width $border-type $colour_secondary;
+   	@include make-container;
+    margin: 30px auto;
+    padding: 0 20px;
+    @include media-breakpoint-down(md) {
+	    display: block;
+	    overflow: auto;
+    }
+    .product-item-name{
+    	display: block;
+    	padding: 15px 0;
+    }
+    .product-reviews-summary.short{
+    	display: flex;
+    	.reviews-actions {
+    		margin-top: 0; 
+		}
+    }
+    .price-box.price-final_price{
+    	font-size: $font_size-md;
+	    font-weight: $font-weight-bold;
+	    padding: 10px 0;
+    }
+    .secondary-addto-links.actions-secondary{
+    	.wishlist{
+    		.label.action.split{
+    			margin-right: 15px; 
+    			width: 135px;
+    			span{
+    				padding: 10px 15px;
+    			}
+    		}
+    		.xxxxxx{               /*****add to button*****/
+    			span{
+    				padding: 10px 15px;
+    			}
+    		}
+    	}
+    	padding-top: 5px; 
+    	a{
+    		color: #2f2ce0;
+    		font-size: $font_size-md;
+    	}
+    }
+    .cell.remove.product.hidden-print{
+    	padding: 10px;
+    	a{
+    		font-size: $font_size-md;
+    		color: #d10029;
+    	}
+    }
+    th{
+    	border-bottom: none;
+    	padding: 10px; 
+    }
+    td{
+    	border-bottom: none;
+    	max-width: 270px;
+    }
+    tr{
+    	border-bottom: $border-width $border-type $colour_secondary;
+    }
+    .cell.product.attribute{
+    	font-size: $font_size-md;
+    }
+   	.secondary-addto-links{
+		.wishlist{ 
+			ul.items{
+				display: none;
+			}
+		}
+		.wishlist.active{
+			ul.items{
+				display: flex;
+				justify-content: flex-start;
+				li.item {
+				    cursor: pointer;
+				    background: #f3f3f3;
+				    display: inline-block;
+				    height: 40px;
+				    line-height: 40px;
+				    width: 144px;
+				    text-align: center;
+				    font-weight: $font-weight-bold;
+				    margin: 10px 4px 0 0;
+				}
+			}
+		}
+    }
+}

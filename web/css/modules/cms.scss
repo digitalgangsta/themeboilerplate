@@ -1,0 +1,31 @@
+.cms-about-us{
+  .page-main{
+    //  @include make-container;
+    }
+  .page-title-wrapper{
+     text-align: center;
+   }
+   .column{
+      &.main{
+        .cms-content-important{
+          font-size: $font_size-lg;
+          padding: 30px;
+          margin: 0;
+          margin-bottom: 15px;
+         }
+         p{
+          text-align: left;
+          padding: 15px;
+          margin-bottom: 15px;
+         }
+         li{
+           text-align: left;
+           padding-left: 15px;
+           &:before {
+             
+             padding-right: 15px;
+            }
+         } 
+      } 
+    }
+}

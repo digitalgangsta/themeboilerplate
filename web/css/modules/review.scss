@@ -1,0 +1,215 @@
+
+
+$star_empty-color: #eee;
+$star_font-size: 14px;
+$star_selected-color: #ff5501;
+$star_icon: '\e929';
+
+
+/* ============================================ *
+ * Rating Summary stars showing under product name
+ * ============================================ */
+.product-reviews-summary {
+  display: flex;
+}
+
+.rating-summary {
+  margin-right: 5px;
+  .label {
+    @include visuallyhidden;
+  }
+
+  .rating-result {
+    // width: 88px;
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    
+
+    // empty stars
+    &:before {
+    
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: block;
+      width: 100%;
+      z-index: 1;
+
+      font: normal $star_font-size/1 'bolt-icons';
+
+      content: $star_icon $star_icon $star_icon $star_icon $star_icon;
+
+      color: $star_empty-color;
+    }
+    
+    > span {
+      display: block;
+      overflow: hidden;
+      
+      // selected stars
+      &:before {
+        position: relative;
+        z-index: 2;
+        
+        font: normal $star_font-size/1 'bolt-icons';
+        
+        
+        content: $star_icon $star_icon $star_icon $star_icon $star_icon;
+        display: block;
+
+        color: $star_selected-color;
+      }
+      span {
+        @include visuallyhidden;
+      }
+    }
+
+
+
+  }
+}
+
+.reviews-actions {
+  // margin-left: 5px;
+  margin-top: 2px;
+  a.action.add {
+    text-decoration: underline;
+  }
+}
+
+
+
+/* ============================================ *
+ * Reviews Block 
+ * ============================================ */
+
+.block.review-add {
+
+  
+    @include make-col-ready;
+    @include media-breakpoint-up(sm) {
+      @include make-col(6);
+    }
+
+    text-align: left;
+  
+
+  .block-title {
+    @include heading-3;
+    font-weight: normal;
+  }
+
+  .review-legend {
+    @include heading-4;
+    margin: 15px 0;
+    padding-bottom: 15px;
+  }
+
+  .review-field-ratings {
+    margin: 0;
+    .label {
+      margin-bottom: 5px;
+    }
+    br {
+      display: none;
+    }
+  }
+}
+
+
+
+
+.review-field-rating {
+  
+  .label {
+    @include visuallyhidden;
+  }
+}
+
+.review-control-vote {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  margin: 0 0 30px 0;
+  // empty stars
+  &:before {
+    color: $star_empty-color;
+    font: $star_font-size*2/1 'bolt-icons';
+    
+    content: $star_icon $star_icon $star_icon $star_icon $star_icon;
+    display: block;
+    position: absolute;
+    z-index: 1;
+  }
+
+  label {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+
+    span {
+      @include visuallyhidden;
+    }
+    // selected stars
+    &:before {
+      color: $star_selected-color;
+      font: $star_font-size*2/1 'bolt-icons';
+      content: $star_icon $star_icon $star_icon $star_icon $star_icon;
+
+      opacity: 0;
+    }
+    &:hover {
+      &:before {
+        opacity: 1;
+      }
+    }
+    &:hover ~ label:before {
+      opacity: 0;
+    }
+  }
+  
+  
+  input[type="radio"] {
+    @include visuallyhidden;
+  }
+  input[type="radio"]:focus + label:before,
+  input[type="radio"]:checked + label:before {
+    opacity: 1;
+  }
+
+  /// Rating
+  .rating-1 {
+    z-index: 6;
+    &:before {
+      content: $star_icon; 
+    }
+  }
+  .rating-2 {
+    z-index: 5;
+    &:before {
+      content: $star_icon $star_icon;
+    }
+  }
+  .rating-3 {
+    z-index: 4;
+    &:before {
+      content: $star_icon $star_icon $star_icon;
+    }
+  }
+  .rating-4 {
+    z-index: 3;
+    &:before {
+      content: $star_icon $star_icon $star_icon $star_icon;
+    }
+  }
+  .rating-5 {
+    z-index: 2;
+    &:before {
+      content: $star_icon $star_icon $star_icon $star_icon $star_icon;
+    }
+  }
+
+}

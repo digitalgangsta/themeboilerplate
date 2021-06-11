@@ -1,0 +1,162 @@
+/* ============================================ *
+* Variables 
+* ============================================ */
+
+// Global
+
+$footer_newsletter-padding-top: 30px;
+$footer_newsletter-padding-bottom: 30px;
+
+$footer_newsletter-background-colour: #f6f6f6;
+$footer_newsletter-background-imge: none;
+
+// Global Font
+$footer_newsletter-font-size: 20px;
+$footer_newsletter-font-color: #000;
+
+// Titles
+// use H2 or any other header @include heading-2; 
+// $footer_newsletter-title-font-size: 40px;
+// $footer_newsletter-title-font-size-MOBILE: 20px;
+
+
+$footer_newsletter-title-font-color: #000;
+$footer_newsletter-subtitle-font-family: "Helvetica", Times, serif; // use from variables.scss
+$footer_newsletter-subtitle-font-size: 15px;
+$footer_newsletter-subtitle-font-color: #000;
+
+
+//input
+$footer_newsletter-input-height: 40px;
+$footer_newsletter-input-font-size: 14px;
+
+//button
+$footer_newsletter-btn-height: $footer_newsletter-input-height;
+$footer_newsletter-btn-background-color: #000;
+$footer_newsletter-btn-color: #fff;
+$footer_newsletter-btn-font-size: 14px;
+
+
+/* ============================================ *
+* Newsletter
+* ============================================ */
+
+.footer-newsletter {
+    
+    @include make-fluid-container;
+    padding-right: 0;
+    padding-left: 0;
+	background-image: url($footer_newsletter-background-imge);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-color: $footer_newsletter-background-colour;
+    
+    font-size: $footer_newsletter-font-size;
+    color: $footer_newsletter-font-color;
+    align-items: center;
+
+}
+.newsletter-container {
+	@include make-container;
+	padding-top: $footer_newsletter-padding-top;
+	padding-bottom: $footer_newsletter-padding-bottom;
+
+	.title {
+		// shouldn't have font size here, this should follow h2 font size
+		@include heading-2;
+
+		display: block;
+    	color: $footer_newsletter-title-font-color;
+
+	}
+	.sub-title {
+		display: block;
+		padding: 15px 0;
+		margin: 0 auto;
+
+		max-width: 500px;
+
+		font-family: $footer_newsletter-subtitle-font-family; 
+		font-size: $footer_newsletter-subtitle-font-size;
+    	color: $footer_newsletter-subtitle-font-color;
+	}
+
+	.declaration {
+		display: block;
+		padding-top: 15px;
+		font-size: 12px;
+
+		a {
+			text-decoration: underline;
+		}
+	}
+}
+
+.subscribe-form {
+
+	.newsletter-field {
+
+		position: relative;
+		max-width: 540px; 
+		margin: 0 auto;
+		padding-left: 30px;
+		background: #fff;
+
+		display: flex;
+		flex-direction: wrap;
+
+		border: 10px solid #fff;
+		
+		
+		&:before {
+			//@include font-awesome('\f0e0');
+	        position: absolute;
+	        left: 5px;
+	        top: 0;
+	        bottom: 0;
+	        margin: auto;
+	        height: 12px;
+	        font-size: 12px;
+		}
+		
+
+		label {
+            @include visuallyhidden;
+        }
+
+        .control {
+        	flex: 0 0 75%;
+
+        	div.mage-error {
+        		font-size: 12px;
+        		color: #f00
+        	}
+        }
+        input {
+        	border: 1px solid #fff;
+        	width: 100%;
+        	line-height: $footer_newsletter-input-height;
+        	height: $footer_newsletter-input-height;
+        	font-size: $footer_newsletter-input-font-size;
+
+        	.mage-error {
+        	
+        		border-color: #f00
+        	}
+
+        }
+        .actions {
+        	flex: 0 0 25%;
+        	align-self: flex-start;
+			button {
+				width: 100%;
+	        	
+	        	span {
+	                padding: 0;
+	                line-height: $footer_newsletter-btn-height;
+	        	}        
+	        }
+	    }
+	} 
+}

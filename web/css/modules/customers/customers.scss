@@ -1,0 +1,1278 @@
+/**
+
+0- Login and Register Page ---- DONE
+0- Deafult Forget Password ---- DONE
+0- Deafult account pages ---- DONE
+0- Account Nav block ---- DONE
+
+
+
+01- Account Dashboard ---- DONE -- EMPTY
+02- Account My Orders ---- DONE
+    2a- Account Order View Page ---- DONE
+    2b- Account Order Print Page ---- DONE
+
+03- Account Order by SKU ---- DONE
+04- Account My Wishlist ---- DONE add new list not working 
+05- Account Address Book and Address Form ---- DONE
+06- Account Information ---- DONE
+    6a- Account 2 columns form mixin
+07- Account Gift Card  -- EMPTY
+08- Account Reward Points  -- EMPTY
+09- Account Gift Registry
+10- Account My Product Reviews
+11- Account Newsletter Subscriptions ---- DONE
+12- Account My Invitations ---- DONE
+
+13- Account Logout Success
+
+**/
+
+/* ============================================ *
+ * Login and Register Page ---- DONE
+ * ============================================ */
+.login-container {
+    @include make-container();
+	.page-title-wrapper {
+        display: block;
+        width: 100%;
+        margin-bottom: 30px;
+        .page-title {
+            text-align:center;
+        }
+	}
+    .login-row { // dont remove
+        @include make-row();
+    }
+    // BLOCK
+	.block {
+        @include make-col-ready;
+        @include media-breakpoint-up(md) {
+            @include make-col(6);
+        }
+        text-align: left;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        .block-wrap {
+            background: #fafafa;
+            padding: 15px 15px; 
+            margin-bottom: 40px;
+
+            @include media-breakpoint-up(md) {
+                padding: 40px 90px; 
+            }
+        }
+        // Title H2
+		.block-title {
+			display: block;
+			margin-bottom: 10px;
+
+            strong {
+                @include heading-2;
+				font-weight: normal;
+			}
+		}
+        // content
+		.block-content {
+
+		}
+	}
+    .form {
+        width: 100%;
+    }
+    // Block Action
+    .actions-toolbar {
+        margin-top: 15px;
+        display: block;
+        text-align: right;
+        overflow: hidden;
+        .primary {
+            margin-bottom: 0;
+            button {
+                width: 100%;
+                margin-bottom: 0;
+            }
+        }
+        .secondary {
+            margin-top: 20px;
+            text-align: center;
+        }
+    }
+}
+
+/* ============================================ *
+ * Deafult Forget Password ---- DONE
+ * ============================================ */
+.block-forgetpassword {
+    margin: 0 auto;
+    .note {
+        text-align: center;
+    }
+    .captcha-image {
+        text-align: center;
+        display: block;
+        margin: 15px 0;
+    }
+    .captcha-reload {
+        margin-top: 15px;
+        @include media-breakpoint-up(md) {
+            margin-top: 5px;
+            margin-left: 10px;
+        }
+    }
+}
+
+/* ============================================ *
+ * Deafult account pages ---- DONE
+ * ============================================ */
+.account-pages {
+    
+    text-align: left;
+
+    .page-main {
+        @include make-container;
+        text-align: left;
+    }
+    .column.main {
+        margin-bottom: 60px;
+        a {
+            color: $link_color;
+            font-size: $font_size-sm;
+        }
+    }
+    div[data-bind="scope: 'messages'"] {
+        position: relative;
+        z-index: 905;
+        width: 100%;
+    }
+    .page-title {
+        margin-bottom: 30px;
+        @include media-breakpoint-down(sm) {
+            margin-bottom: 15px;
+        }
+    }
+    .sidebar.sidebar-main{
+        margin-bottom: 60px;
+    }
+    .pager {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 15px 0;
+    }
+    .limiter {
+        display: flex;
+        align-items: center;
+        select {
+            height: 30px;
+            margin: 0 10px;
+        }
+        .limiter-text {
+            white-space: nowrap;
+        }
+    }
+    // .fieldset {
+    //     > .legend {
+    //         display: block;
+    //         border-bottom: 1px solid #cdcdcd;
+    //         font-size: $font_size-lg;
+    //         font-weight: bold;
+    //     }
+    // }
+    .block {
+        margin-bottom: 60px;
+        .block-title {
+            strong {
+                font-weight: normal;
+            }
+            @include heading-3;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: $border-default;
+            line-height: 25px;
+            .action {
+                float: right;
+                font-size: 12px; 
+                text-decoration: underline;
+            }
+        }
+        .block-content {
+            @include make-row();
+            // margin: 0; not sure why it is here
+            .empty {
+               @include make-col-ready; 
+            }
+        }
+        .table-wrapper {
+            @include make-col-ready;
+        }
+        .box {
+            @include make-col-ready;
+            // padding: 0; why is this here 
+            @include media-breakpoint-up(md) {
+                @include make-col(6);
+                
+            }
+            margin-bottom: 15px;
+        }
+        .box-title {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .box-box-content {
+
+        }
+        .box-actions {
+            display: block;
+            margin-top: 15px;
+            a {
+                color: $link_color; 
+                margin-right: 10px;
+                span {
+                    text-decoration: underline;                    
+                }
+                &.change-password {
+                    text-decoration: underline;    
+                }
+            }
+
+        }
+    }
+
+    .actions-toolbar {
+        width: 100%;
+        @include make-row();
+        flex-direction: column;
+
+        @include media-breakpoint-up(md) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        margin: 30px 0;
+
+        .primary {
+            order: 1;
+            @include media-breakpoint-up(md) {
+                order: 2;
+            }
+        }
+        .secondary {
+            order: 2;
+            text-align: center;
+            @include media-breakpoint-up(md) {
+                order: 1;
+                text-align: left;
+            }
+        }
+
+        .action.back {
+        
+        }
+        button {
+            @include media-breakpoint-down(md) {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+    }
+    
+    // we may need to move this tables.sass to apply on all
+    @include media-breakpoint-down(sm) {
+        thead {
+            th {
+                display: none;
+            }
+        }
+        tbody {
+            tr {
+                &:nth-child(even) {
+                    border-top: 4px solid $border_colour-default;
+                }
+            }
+            td {
+                display: block;
+                &:before {
+                    padding-right: 10px;
+                    content: attr(data-th) ': ';
+                    display: inline-block;
+                    font-weight: bold;
+
+                }
+            }
+            // what is thsi for
+            .rating-summary,
+            ul {
+                display: inline-block;
+           }
+        }
+    }
+}
+
+
+
+/* ============================================ *
+ * Account Nav block ---- DONE
+ * ============================================ */
+.account-nav {
+
+    padding: 30px 15px;
+    background-color: #fafafa;
+
+    .account-nav-title {
+        @include visuallyhidden;
+    }
+    .account-nav-content {
+        
+        .item {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        a,
+        strong {
+            font-weight: normal;
+            color: $link_color;
+           
+        }
+        a {
+            color: $link_color;
+        }
+    }
+
+    .current {
+        &:before {
+            @include font-icon('\e909');
+        }
+    } 
+
+
+    .delimiter {
+        border-top: $border-default;
+        display: block;
+    }
+}
+
+
+
+/* ============================================ *
+ * Account Dashboard ---- DONE
+ * ============================================ */
+
+
+
+
+/* ============================================ *
+ * Account My Orders ---- DONE
+ * ============================================ */
+.table-order-items {
+    .action.view {
+        padding-right: 15px;
+    }
+}
+
+/* ============================================ *
+ * Account Order View Page
+ * ============================================ */
+.orders-view-content {
+    .page-title-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        h1 { 
+            flex: 100%;
+        }
+    }
+    .order-actions-toolbar {
+        width: auto;
+        margin: 0;
+        .action.print {
+            margin-left: 15px;
+        }
+    }
+}
+
+
+
+.items.order-links {
+    display: flex;
+    @include media-breakpoint-down(sm) {
+        flex-direction: column;
+    }
+    li {
+        float: left;
+        border: 1px solid $colour_secondary;
+        border-bottom: 4px solid transparent;
+        padding: 15px;
+        margin: 0 -1px -1px 0;
+        @include media-breakpoint-down(sm) {
+            margin-bottom: -2px;
+        }
+        &.current {
+            border-bottom-color: $colour_secondary;
+        }
+        a {
+            font-size: $font_size-sm;
+        }
+    }
+}
+
+.order-details-items {
+    border: $border-default;
+    padding: 15px;
+    
+    td.image-column {
+        padding-left: 0;
+        img {
+            max-width: 90px;
+        }
+    }
+    td.qty {
+        font-size: $font_size-sm;
+        li {display: block;}
+    }
+    .item-options {
+        font-size: $font_size-sm;
+        dt {
+            float:left;
+            margin-right: 5px;
+        }   
+    }
+
+    .order-title {
+        margin-bottom: 20px;
+        border-bottom: $border-default;
+        padding-bottom: 10px;
+        display: none;
+        @include media-breakpoint-down(sm) {
+            width: auto;
+            display: block;
+        }
+    }
+}
+
+.block {
+    &.block-order-details-view {
+       margin: 60px 0;
+       border: $border-default;
+       padding: 30px 15px;
+    }
+}
+/* ============================================ *
+ * Account Order Print Page -- DONE
+ * ============================================ */
+// includer print refund page
+
+
+.sales-order-printcreditmemo,
+.account.sales-order-print {
+    .logo {
+        max-width: 200px;
+        margin: 30px 0 0;
+    }
+    .order-status,
+    .order-date { width: auto; display: inline-block; }
+    .order-details-items { 
+        margin: 30px 0;
+        padding-bottom: 30px;
+        .actions-toolbar {
+            display: none;
+            .action.back {
+                display: none; // remove back button
+            }
+        }
+
+    }
+}
+
+
+
+/* ============================================ *
+ * Account Order by SKU ---- DONE
+ * ============================================ */
+
+.block-addbysku {
+
+    .block-content {
+        margin: 0 !important;
+    }
+    
+    .box-items {
+        .actions-toolbar {
+            padding: 0;
+            margin: 15px 0;
+        }
+    }
+
+    .box-upload {
+        background: #eee;
+        padding: 30px !important;
+
+        .label {
+            @include heading-3;
+        }
+        .reset {
+            margin-top: 15px;
+        }
+        .note {
+            margin: 15px 0;
+            display: block;
+            p { display: block; }
+        }
+    }
+
+    .actions-toolbar {
+        padding: 0 15px;
+    }
+
+
+    //
+    .form-addbysku {
+       @include make-row();
+    }
+
+    .field.sku {
+        width: 60%;
+        float: left;
+        margin-right: 15px;
+    }
+    .field.qty {
+        width: 20%;
+        float: left;
+        input { width: 100%; }
+    }
+    .remove {
+        background: none;
+        display: block;
+        &:before {
+            content: "";
+            width: 12px;
+            height: 12px;
+            background-color: $colour_secondary;
+            display: block;
+            margin-top: 15px;
+            margin-left: 15px;
+        }
+        span {
+            @include visuallyhidden;
+        }
+    }
+    .fieldset {
+        .fields {
+            position: relative;
+            clear: both;
+        }
+        .actions-toolbar {
+            margin: 0;
+            width: 15%;
+            float: left;
+            width: 10%;
+        }
+    }
+}
+
+
+
+
+/* ============================================ *
+ * Account My Wishlist
+ * ============================================ */
+.wishlist-toolbar {
+    margin-bottom: 30px;
+    float: left;
+    width: 100%;
+}
+
+
+.block-wishlist-management {
+    
+    margin-bottom: 30px;
+    width: 100%;
+    float: left;
+    
+    // multi wishlist toolbar start
+    .wishlist-select {
+        border-bottom: $border-default;
+       
+        margin-bottom: 15px;
+        width: 100%;
+        float: left;
+       
+        
+        .wishlist-name {
+            display: block;
+            width: 100%;
+            padding-bottom: 15px;
+            position: relative;
+            &:before {
+                content: "";
+                width: 14px;
+                height: 14px;
+                background-color: $colour_secondary;
+                display: block;
+                right: 0;
+                top: 4px;
+                position: absolute;
+            }
+            @include media-breakpoint-up(md) {
+                @include visuallyhidden;
+            }
+        }
+
+        .wishlist-name-label {
+            &:after { 
+                content: ' : ';
+            }
+        }
+        
+    }
+
+    .wishlist-select-items {
+        float: left;
+        width: 100%;
+
+        @include media-breakpoint-down(md) {
+            background: #eee;
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+
+        
+        .item {
+            float: left;
+            padding: 10px 15px;
+            margin-right: 10px;
+
+            border-bottom: 4px solid transparent;
+            bottom: -2px;
+            position: relative;
+            
+            @include media-breakpoint-down(md) {
+                margin: 0;
+                bottom: 0;
+                width: 100%;
+                padding: 10px 15px;   
+            }
+            &.current {
+                display: none;
+                @include media-breakpoint-up(md) {
+                    display: block;
+                    border-bottom-color: $colour_secondary;
+                }
+
+            }
+        }
+
+        .wishlist-add {
+            float: right;
+            @include media-breakpoint-up(md) {
+                margin-left: 10px;
+                margin-right: 0px;
+            }
+        }
+    }
+    // multi wishlist toolbar end
+
+
+    .wishlist-title {
+        strong {
+            font-weight: normal;
+            @include heading-2;
+            
+        }
+        margin-bottom: 15px;
+    }
+
+    .wishlist-info {
+        display: inline-flex;
+        float: left;
+        font-size: $font_size-sm;
+        .wishlist-notice  {
+            margin-right: 15px;
+        }
+    }
+
+
+    .wishlist-toolbar {
+        display: inline-flex;
+        float: right;
+        font-size: $font_size-md;
+        margin-bottom: 0;
+        width: auto;
+        @include media-breakpoint-down(md) {
+            float: left;
+            display: block;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .wishlist-toolbar-select {
+            margin-right: 15px;
+            @include media-breakpoint-down(md) {
+                width: 100%;
+                display: block;
+                margin: 0;
+            }
+        }
+
+        .wishlist-toolbar-actions {
+            display: flex;
+            @include media-breakpoint-down(md) {
+                width: 100%;
+                justify-content: space-between;
+                margin-top: 15px;
+            }
+        }
+
+        
+    }
+
+}
+.wishlist-dropdown {
+    position: relative;
+    margin-bottom: 10px;
+            
+    &.move {
+        @include media-breakpoint-up(md) {
+            margin-right: 15px;
+        }
+    }
+    &.active {
+        ul.dropdown {
+            display: block;
+        }
+    }
+    .action.toggle {
+        cursor: pointer;
+        position: relative;
+        // padding-right: 15px;
+
+        &:before {
+            @include font-icon('\e91a');    
+        }
+        &.active {
+            &:after {
+                background-color: $body_selection-colour;
+            }
+        }
+    }
+    
+    ul.dropdown {
+        background: #fff;
+        border: 1px solid $colour_secondary;
+        margin-top: 5px;
+        min-width: 200px;
+        z-index: 100;
+        display: none;
+        position: absolute;
+        top: 100%;
+        box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            left: auto;
+            right: 9px;
+            width: 0;
+            height: 0;
+            display: block;
+        }
+        &:before {
+            top: -15px;
+            z-index: 99;
+            border: 8px solid;
+            border-color: transparent transparent #fff;
+        }
+        &:after {
+            top: -16px;
+            z-index: 98;
+            border: 8px solid;
+            border-color:  transparent transparent $colour_secondary;
+        }
+    }
+   
+    li {
+        padding: 5px 15px;
+        position: relative;
+        
+        &:hover {
+            background: $colour_secondary;
+            cursor: pointer
+        }
+        
+        .new {
+            &:after{
+                @include font-icon('\e91a'); 
+            }
+        }
+    }
+}
+
+
+
+// product wishlist grid
+.products-grid.wishlist {
+    float: left;
+    width: 100%;
+
+    li.product-item {
+        text-align: left;
+        @include media-breakpoint-down(sm) {
+            @include make-col(12);   
+        }
+        
+    }
+    .product-item-info {
+        padding: 15px;
+        margin: -15px;
+        border: 1px solid transparent;
+
+        @include media-breakpoint-up(md) {
+            &:hover {
+                background: #fff;
+                box-shadow: 3px 4px 4px 0 rgba(0, 0, 0, 0.3);
+                border: $border-default;
+                position: relative;
+                z-index: 2;
+                .product-item-inner {
+                    background: #fff;
+                    border: $border-default;
+                    box-shadow: 3px 4px 4px 0 rgba(0, 0, 0, 0.3);
+                    border-top: none;
+                    display: block;
+                }
+            }
+        }
+
+        .product-item-inner {
+            @include media-breakpoint-up(md) {
+                position: absolute;
+                display: none;
+                left: 0;
+                right: -1px;
+                left: -1px;
+                z-index: 2;
+                padding: 15px;
+                border: 1px solid transparent;
+            }
+        }
+    }
+
+    .product-item-photo {
+        display: block;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .product-item-checkbox {
+        margin: 2px 5px 0 0;
+        float: left;
+    }
+    .product-reviews-summary {
+        display: flex;
+        margin-bottom: 15px;
+    }
+    .reviews-actions {
+        margin-top: 0;
+    }
+    .price-box {
+        font-size: $font_size-md;
+        font-weight: bold;
+        margin: 15px 0;
+    }
+    .tooltip {
+        dt {
+            float: left;
+            margin-right: 10px;
+        }
+    }
+    .comment-box {
+        label {
+            @include visuallyhidden;
+        }
+        .product-item-comment {
+            min-width: inherit;
+        }
+    }
+    
+    // add to cart box strat
+    .fieldset {
+        display: block;
+        margin: 10px 0;
+        width: 100%;
+
+        .field.qty {
+           float: left;
+           width:40%;  
+        }
+        .product-item-actions {
+            float: right;
+            width: 60%;
+            padding-left: 10px;
+            margin-top: 19px;
+            text-align: right;
+            .actions-primary {
+                padding: 0;
+            }
+        }
+    }
+    // add to cart font size
+    .box-tocart .tocart span {
+        font-size: 10px;
+    }
+    .quantity-wrap {
+        justify-content: flex-start;
+    }
+    // add to cart box end
+
+    // Icons edit and remvoe start
+    .action.edit {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .btn-remove {
+        float: left;
+    }
+    .btn-remove,
+    .edit {
+        margin-top: 5px;
+
+    }
+    
+    // Remvoed giftregisty from listing done by Ahmed
+    .giftregisty-dropdown {
+        @include visuallyhidden;
+    }
+
+
+
+    //// dropdowns - change top arrow postion
+    ul.dropdown{
+        &:before,
+        &:after {
+            left: 15px;
+            right: auto;
+            
+        }
+    }
+    ////
+}
+
+.form-wishlist-items {
+    .actions-toolbar {
+        float: left;
+        width: 100%;
+        a.action.back span, 
+        .primary button span { //don't change
+            font-size: $font_size-sm;
+        }
+    }
+}
+
+
+
+
+// popup used on wishlist pages 
+
+.wishlist.window.popup {
+
+    
+    bottom: 0;
+    left: 0;
+    min-width: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transform: translateY(-200%);
+            transform: translateY(-200%);
+    -webkit-transition: -webkit-transform 0.2s ease;
+            transition: transform .2s ease;
+
+    margin: 60px auto;
+    width: 70%;
+    max-width: 550px;
+    height: 250px;
+    padding: 30px;
+    
+    &.active {
+        z-index: 999 !important;
+        visibility: visible;
+        opacity: 1;
+        -webkit-transform: translateY(0);
+                    transform: translateY(0);
+
+
+        background: $modal_background-color;
+        padding: $modal-popup_padding;
+    }
+    .field {
+        text-align: left;
+    }
+    .popup-actions {
+
+        position: absolute;
+        right: 10px;
+        top: 10px   ;
+        z-index: 9999s;
+        span {
+            background: none;
+            border: 0;
+            line-height: inherit;
+            margin: 0;
+            padding: 0;
+            font-size: 0;
+            &:before{
+                @include font-icon('\e924');
+                font-size: 18px;
+                color: #000;
+            }
+            
+        }
+
+    }
+    .popup-header {
+        flex: 1;
+        padding: 0 15px 15px;
+        position: relative;
+
+        .title {
+            @include heading-2;
+        }
+    }
+
+    .actions-toolbar {
+        margin-top: auto;
+        .primary {
+            display: inline-block;
+        }
+        .secondary {
+            display: inline-block;
+        }
+       
+    }
+}
+
+.wishlist.overlay {
+    background-color: rgba(51, 51, 51, 0.55);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 990 !important;
+}
+
+
+
+
+
+/* ============================================ *
+ * Address Book and Address Form ---- DONE
+ * ============================================ */
+@mixin account-forms-2columns {
+    .fieldset {
+        @include make-col-ready;
+        @include media-breakpoint-up(md) {
+            @include make-col(6);
+        }
+        margin-bottom: 60px;
+        
+
+        .legend {
+            float: left;
+        }
+        .field {
+            float: left;
+            width: 100%;
+            display: block;
+            clear: both;
+        }
+        .nested {
+            overflow: hidden;
+            margin-top: 15px;
+
+            div:last-child { margin-bottom: 0; } // to make space even don't remove
+        }
+        .message {
+            clear: both;
+            display: block;
+        }
+    }
+
+    .actions-toolbar {
+        padding: 0 15px;
+    }
+}
+
+.form-address-edit {
+    @include make-row();
+    @include account-forms-2columns;
+    
+}
+ 
+
+
+/* ============================================ *
+ * Account information
+ * ============================================ */
+.form-edit-account {
+    @include make-row();
+    @include account-forms-2columns;
+}
+
+
+/* ============================================ *
+ * Account Gift Card
+ * ============================================ */
+
+
+
+/* ============================================ *
+ * Account Reward Points
+ * ============================================ */
+.block-reward-history {
+    .block-content {
+        padding: 0 15px;
+    }
+ }
+
+
+
+/* ============================================ *
+ * Account Gift Registry
+ * ============================================ */
+.magento_giftregistry-index-edit {
+    .giftregistry-type {
+        width: 100%;
+        padding: 15px 0;
+    }
+    br {
+        display: none;
+    }
+    .field.date button {
+        margin-top: 15px;
+    }
+}
+#registrant-container{
+    .actions-toolbar {
+        margin: 0;
+    }
+}
+
+
+/* ============================================ *
+ * Account MY product reviews
+ * ============================================ */
+.review-customer-view {
+    .product-name {
+        font-size: $font_size-lg;
+    }
+    .product-details {
+        display: flex;
+        margin-bottom: 50px;
+    }
+    .rating-average-label {
+        @include visuallyhidden;
+    }
+    .product-reviews-summary {
+        display: flex;
+        margin: 10px 0;
+    }
+    .reviews-actions {
+        margin: 0;
+    }
+    .review-details {
+        > div {
+            margin-bottom: 10px;
+        }
+    }
+    .title {
+        border-bottom: $border-default;
+        margin-bottom: 25px;
+        padding-bottom: 10px;
+        font-size: $font_size-lg;
+    }
+    
+}
+
+/* ============================================ *
+ * Account Newsletter Subscriptions
+ * ============================================ */
+
+
+/* ============================================ *
+ * Account My Invitations
+ * ============================================ */
+.form-add-invitations {
+    .fields {
+        .actions-toolbar {
+            width: 24%;
+            float: right;
+            display: inline-block;
+            margin: 23px 0 0;
+        }
+        .field {
+            width: 74%;
+            float: left;
+        }
+        .remove {
+            background: none;
+            display: block;
+            &:before {
+                content: "";
+                width: 12px;
+                height: 12px;
+                background-color: $colour_secondary;
+                display: block;
+                margin-top: 15px;
+                margin-left: 15px;
+            }
+            span {
+                @include visuallyhidden;
+            }
+        }
+    }
+    .actions-toolbar {
+        margin: 0 0 30px;
+    }
+}
+
+
+
+/* ============================================ *
+ * My Account
+ * ============================================ */
+.block-reviews-dashboard {
+    margin: $margin 0;
+    .item {
+        margin: $margin 0;
+    }
+}
+
+/* ============================================ *
+ * Account Logout Success
+ * ============================================ */
+.customer-account-logoutsuccess {
+    .page-main {
+        text-align: center;
+    }
+}
+
+
+// need review 
+.customer-account-createpassword {
+    form.reset {
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto 80px;
+        text-align: left;
+    }
+    .page-title {
+        text-align: center;
+    }
+ }

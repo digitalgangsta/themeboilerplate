@@ -1,0 +1,850 @@
+/* ============================================ *
+
+1- Checkout Layout 
+2- Checkout Header
+3- Checkout General
+4- Checkout OPC Wrapper
+5- Checkout Shipping Address
+6- Checkout Shipping Method
+7- Checkout Payment Methods
+8- Checkout OPC Sidebar and Summary
+9- checkout - footer
+10- Checkout authentication
+11- OPC Progress bar - show only on desktop
+12- Success page
+
+ * ============================================ */
+
+
+/* ============================================ *
+ * 1- Checkout Layout
+ * ============================================ */
+
+.page-layout-checkout .page-main {
+    @include make-container;
+}
+.page-layout-checkout .columns {
+    @include make-row;
+}
+.page-layout-checkout .column {
+    @include make-col-ready;
+}
+
+.checkout-container {
+    @include make-row;
+}
+
+
+/* ============================================ *
+ * 2- Checkout Header
+ * ============================================ */
+.page-layout-checkout {
+	.page-header {
+		border-bottom: $border-default;
+    	margin-bottom: 30px;
+        padding: 15px;
+	}
+    .checkout-header-links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .head-link,
+        .logo,
+        .right-side {
+        	@include make-col(4);
+        	@include media-breakpoint-down(md) {
+        		@include make-col(4);
+        	}
+        }
+        .head-link {
+        	text-align: left;
+        	@include media-breakpoint-down(md) {
+				@include make-col(3);
+			}
+        }
+        .right-side{
+        	text-align: right;
+        	@include media-breakpoint-down(xs) {
+				padding-right: 50px;
+			}
+        }
+    }
+	.header {
+		@include make-container;
+        .logo {
+            float: none;
+            margin: 0 auto;
+            display: inline-block;
+            max-width: 250px;
+            @include media-breakpoint-down(md) {
+            	@include make-col(5);
+            	max-width: 180px;
+            }
+        }
+        .img {
+            width: 50px;
+            @include media-breakpoint-down(md) {
+            	width: 15px;
+            }
+        }
+								
+	}
+}
+
+/* ============================================ *
+ * 3- Checkout General
+ * ============================================ */
+.checkout-index-index  {
+    .loading-mask {
+        position: fixed;
+        background: rgba(0,0,0,0.3);
+        z-index: 999;
+        background: rgba(255,255,255,0.7);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        
+        img {
+            left: 0;
+            right: 0;
+            top: 30%;
+            margin: 0 auto;
+        }
+    }
+}
+
+
+
+/* ============================================ *
+ * 4- Checkout OPC Wrapper
+ * ============================================ */
+.opc-wrapper {
+    
+    @include make-col-ready;
+    
+    @include media-breakpoint-up(md) {
+        @include make-col(7);
+    }
+    @include media-breakpoint-up(lg) {
+        @include make-col(8);
+    }
+    // show last on mobile after summery
+    @include media-breakpoint-down(sm) {
+        order: 2;
+    }
+    text-align: left;
+
+    .step-title {
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        border-bottom: $border-default;
+        font-size: $font_size-lg;
+    }
+    li {
+        margin-bottom: 30px;
+    }
+    .form-login,
+    .form-shipping-address {
+        @include media-breakpoint-up(md) {
+            max-width: 500px;
+        }
+    }
+
+    .form-login {
+        .actions-toolbar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            .primary {
+                order: 2;
+            }
+            .secondary {
+                order: 1;
+                font-size: $font_size-sm;
+                display: flex;
+                a {
+                    margin: auto 0;
+                }
+
+            }
+        }
+    }
+
+    .actions-toolbar {
+        padding: 15px 0;
+        text-align: right;
+        .primary {
+
+        }
+    }
+}
+
+/* ============================================ *
+ * 5- Checkout Shipping Address
+ * ============================================ */
+
+.checkout-shipping-address {
+    .addresses {
+
+    }
+    .action-show-popup {
+        margin-top: 15px;
+    }
+}
+
+/* ============================================ *
+ * 6- Checkout Shipping Method
+ * ============================================ */
+.checkout-shipping-method {
+    th {
+        display: none;
+    }
+    table {
+        @include media-breakpoint-up(md) {
+            max-width: 500px;
+        }
+    }
+    tbody {
+        td {
+            line-height: 1;
+            font-size: $font_size-lg;
+        }
+        td:first-child {
+            padding-left: 0;
+            padding-right: 0;
+            width: 20px;
+        }
+    }
+    input.radio {
+        height: auto;
+    }
+}
+
+
+
+/* ============================================ *
+ * 7- Checkout Payment Methods
+ * ============================================ */
+.checkout-payment-method {
+    .payment-method-title {
+        label {
+            font-size: $font_size-lg;
+        }
+    }
+    
+    .opc-payment-additional {
+        .payment-option-title {
+           font-size: $font_size-md;
+           &:after {
+            @include font-icon('\e907');
+            padding-left: 10px;
+           }
+           
+           cursor: pointer;
+           margin-bottom: 15px;
+        }
+        .payment-option-content {
+            display: none;
+        }
+        .actions-toolbar {
+            .primary,
+            .secondary {
+                display: inline-block;
+            }
+        }
+
+        &._active {
+           .payment-option-title {
+                @include font-icon-after('\e90a');
+           } 
+        } 
+    }
+    
+}
+
+/* ============================================ *
+ * 8- Checkout OPC Sidebar and Summary -- review last part
+ * ============================================ */
+.opc-sidebar {
+    
+    @include make-col-ready;
+    
+    @include media-breakpoint-up(md) {
+        @include make-col(5);
+    }
+    @include media-breakpoint-up(lg) {
+        @include make-col(4);
+    }
+
+    // show first on mobile
+    @include media-breakpoint-down(sm) {
+        order: 1;
+    }
+
+
+    margin-bottom: 30px;
+    
+    .modal-header { // will be used on mobile
+        .action-close {
+            display: none;
+            @include media-breakpoint-down(sm) {
+                display: block;
+            }
+            
+        }
+    }
+}
+
+// items in cart
+.items-in-cart {
+    order: -1;
+    .title {
+        
+        @include heading-3;
+        
+        display: block !important;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+
+        border-bottom: $border-default;
+        
+        text-align: left;
+        cursor: pointer;
+        position: relative;
+        
+        &:after {
+            position: absolute;
+            right: 5px;
+            top: 2px;
+            @include font-icon('\e907');
+        }  
+    }
+
+    &.active {
+        .title {
+            &:after {
+                @include font-icon('\e90a');
+            }  
+        }
+    }
+
+    // we can remvoe this outside .items-in-cart
+    .product-item {
+        display: block;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: $border-default;
+
+        &:last-child {
+            border-bottom: 0 none;
+        }
+
+        .product {
+            display: flex;
+        }
+        .product-image-container {
+            @include make-col-ready;
+            //@include media-breakpoint-up(md) {
+                @include make-col(3);
+                padding: 0;
+           // }
+        }
+        .product-item-details {
+            @include make-col-ready;
+            //@include media-breakpoint-up(md) {
+                @include make-col(9);
+            //}
+            text-align: left;
+        }
+
+        .product-item-name {
+            display: block;
+            margin-bottom: 15px;
+        }
+        .details-qty {
+            display: block;
+            margin-bottom: 15px;
+            .label { 
+                display: inline-block;
+            }
+            .value {
+               display: inline-block;
+               font-weight: bold;
+               margin-left: 15px; 
+            }
+        }
+        .subtotal {
+            display: block;
+            font-weight: bold;
+        }
+
+        .product.options {
+            display: block;
+            margin-top: 15px;
+            span {
+                display: none;
+            }
+        }
+        .item-options {
+            display: block !important;
+            dt {
+                display: block;
+                float: left;
+                padding-right: 5px;
+                clear: left;
+                font-weight: bold;
+                &:after {
+                    content: " :";
+                }
+            }
+            dd {
+                display: block;
+                float: left;
+                
+            }
+        }
+    }
+}
+
+
+.opc-block-summary {
+
+    padding: 15px;
+    margin: 0 auto;
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    border: $border-default;
+    display: flex;
+    flex-direction: column;
+    
+    .title {
+       display: none;
+    }
+
+    // total table 
+    .table-totals {
+        .mark {
+            padding-left: 0;
+        }
+        .amount {
+            padding-right: 0;
+            text-align: right;
+        }
+        tr:nth-child(2n) {
+            background: none;
+        }
+        tr:last-child { // Order Total
+            th,
+            td {
+                border: 0 none;
+            }
+        }
+    }
+
+
+    /* sidebar address */ // didn't review yet      
+    .shipping-information {
+        margin: 0 0 $margin;
+    }       
+    .shipping-information-content {
+        line-height: 22px;
+        text-align: left;
+    }       
+    .ship-to,.ship-via {
+        margin: 0 0 $margin;
+    }
+    .shipping-information-title {
+        border-bottom: $border-width $border-type #cccccc;
+        margin: 0 0 $margin;
+        position: relative;
+        padding-bottom: $padding;
+        color: #333333;
+        font-size: $font_size-lg;
+        text-align: left;
+        display: block;
+        clear: both;
+        overflow: hidden;
+        span {
+            line-height: 40px;
+        }
+        button {
+            float: right;
+        }           
+    }           
+}
+
+
+/* ========================== *
+ * 9- checkout - footer
+ * ======================== */
+.checkout-footer {
+    border-top: $border-width*2 $border-type #ccc;
+    .container {
+        @include make-container;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0;
+        align-items: center;
+        @include media-breakpoint-down(md) {
+            flex-direction: column;
+        }
+    }
+    .logo {
+        max-width: 180px;
+    }
+    .img {
+        max-width: 50px;
+    }
+    ul {
+        display: flex;
+        @include media-breakpoint-down(md) {
+        	margin-top: 20px;
+        	&.links {
+        		margin-top: 0;
+        		display: none;
+        	}
+        }
+        li {
+            margin-right: 10px;
+        }
+    }
+    .logo,.links{
+        @include media-breakpoint-down(md) {
+            margin-bottom: 20px;
+        }
+    }   
+}
+
+
+/* ============================================ *
+ * 10- Checkout authentication
+ * ============================================ */
+
+.authentication-wrapper {
+    width: 33.33333333%;
+    
+    margin-right: 15px;
+    margin-left: auto;
+    top: -60px;
+    max-width: 50%;
+    position: relative;
+    text-align: right;
+    
+    ._has-auth-shown & {
+        z-index: 9999;
+    }
+
+    .action-auth-toggle {
+        span {
+            text-decoration: underline;
+            background: none;
+            border: 0;
+            line-height: inherit;
+            margin: 0;
+            padding: 0;
+            color: #000;
+
+        }
+    }
+}
+
+.authentication-dropdown {
+    @include media-breakpoint-up(md) {
+        margin-top: 15px;
+        padding: 15px;
+
+        background-color: #fff;
+        border: $border-default;
+        
+        -webkit-transform-origin: 0 0;
+                transform-origin: 0 0;
+        -webkit-transform: scale(1,0);
+                transform: scale(1,0);
+        -webkit-transition: -webkit-transform linear .1s,visibility 0s linear .1s;
+                transition: transform linear .1s,visibility 0s linear .1s;
+
+        position: absolute;
+        text-align: left;
+        top: 100%;
+        
+        visibility: hidden;
+        width: 100%;
+
+    }
+
+    &._show {
+        @include media-breakpoint-up(md) {
+        z-index: 100;
+        -webkit-transform: scale(1,1);
+                transform:scale(1,1);
+        -webkit-transition: -webkit-transform linear .1s,visibility 0s linear 0s;
+                transition:transform linear .1s,visibility 0s linear 0s;
+        visibility:visible;
+        }
+    }
+
+    
+
+    .block-title {
+        @include heading-3
+        margin-bottom: 15px;
+        strong { font-weight: normal; }
+    }
+    
+    .actions-toolbar {
+        display: flex;
+        justify-content: space-between;
+        .secondary {
+            margin: auto 0;
+        }
+    }
+}
+
+
+// mobile
+body._has-modal-custom {
+    height: 100vh;
+    overflow: hidden;
+    width: 100vw;
+}
+
+.opc-estimated-wrapper {
+    display: none;
+
+    @include media-breakpoint-down(sm) {
+        @include make-col-ready;
+        display: block;
+        margin-bottom: 30px;
+    }
+    .estimated-block {
+        margin: auto 0;
+        font-size: $font_size-md;
+        font-weight: bold;
+    }
+    .inner {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        width: 100%;
+        border: $border-default;
+    }
+}
+
+.custom-slide {
+    
+
+
+    .action-close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        span {
+            background: none;
+            border: 0;
+            line-height: inherit;
+            margin: 0;
+            padding: 0;
+            color: #000;
+            font-size: 0;
+            &:before{
+                @include font-icon('\e924');
+                font-size: 18px;
+                color: #000;
+            }
+        }
+    }
+    
+
+    @include media-breakpoint-down(sm) {
+        bottom: 0;
+        left: 0;
+        min-width: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        visibility: hidden;
+        opacity: 0;
+        -webkit-transition: visibility 0s .3s,opacity .3s ease;
+            transition: visibility 0s .3s,opacity .3s ease;
+        left: 44px;
+        z-index: 900;
+        background: #fff;
+        text-align: left;
+        padding: 30px 15px;
+        margin: 0;
+        width: auto;
+        &._show { 
+            visibility: visible;
+            opacity: 1;
+            -webkit-transition: opacity .3s ease;
+                    transition: opacity .3s ease;
+        }
+    }
+
+    .opc-block-summary {
+        @include media-breakpoint-down(sm) {
+            margin-top: 30px;
+        }
+    }
+
+}
+
+
+
+body._has-modal-custom .modal-custom-overlay {
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 899;
+    background-color: rgba(51,51,51,.55);
+}
+
+
+
+
+/* ============================================ *
+ * 11- OPC Progress bar - show only on desktop
+ * ============================================ */
+.progress-bar-wrap {
+       @include make-container(); 
+    }
+.opc-progress-bar { 
+    display: none;
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+    	@include make-row();
+	    margin: 0 0 30px;
+	    counter-reset: i;
+	    font-size: 0;
+	    clear: both;
+	    overflow: hidden;
+	
+		&-item {
+    		@include make-col-ready;
+            @include media-breakpoint-up(md) {
+                @include make-col(4);
+            }
+
+    	    position: relative;
+    	    text-align: center;
+    	    vertical-align: top;
+
+    		
+
+    	    &:before {
+    		    background: #eee;
+    		    bottom: 0;
+    		    transition: background 0.3s;
+    		    content: '';
+    		    height: 3px;
+    		    left: 0;
+    		    position: absolute;
+    		    width: 100%;
+    		}
+    		> span {
+    		    display: inline-block;
+    		    width: 100%;
+    			word-wrap: break-word;
+    		    color: #ccc;
+    		    font-weight: 300;
+    		    font-size: $font_size-lg;
+    		    margin-bottom: $margin;
+    			&:before {
+    			    background: #ffffff;
+    			    content: counter(i)'.';
+    			    counter-increment: i;
+    			}
+    		}
+
+    		&._complete {
+    			cursor: pointer;
+    			&:hover:before {
+    				background: #d7d7d7;
+    			}
+    			&:hover > span:before {
+
+    			}
+    			> span {
+
+    			}
+    		}
+    		&._active {
+    			&:before {
+    				background: $colour_secondary;
+    			}
+    			> span {
+    			    color: $font-colour-default;
+    			   	text-transform: uppercase;
+    			}
+    		}
+	  	}
+	}
+}
+
+/* ============================================ *
+ * 12- Success page
+ * ============================================ */
+.checkout-onepage-success { 
+	.opc-wrapper {
+	    width: 100%;
+	    text-align: center;
+	    font-size: 20px;
+	    line-height: 30px;
+        margin: auto;
+	}
+	#registration {
+	    display: block;
+	    clear: both;
+	}	
+	.page-title {
+	    display: block;
+	    clear: both;
+	    margin-bottom: 30px;
+	}
+	.checkout-success {
+        p:nth-child(3) {
+            padding: 10px 0;
+            border-top: 1px solid rgba(0,0,0,0.11);
+            margin: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.11);
+        }
+		a.action {
+			clear: both;
+		    display: inline-block;
+		    margin-bottom: $margin;
+		    width: 300px;
+		    line-height: 50px;
+		    height: 50px;
+		    text-transform: uppercase;
+
+            @include media-breakpoint-down(sm) {
+                width: 100%;
+            }
+            &:not(:last-child) {
+                margin-right: $margin;
+            }
+            span {
+    			color: $button-color;
+    	      	background: $button-background;
+    		    border: $border-width $border-type $border-colour;
+            }
+		}
+		a.action.create-account {
+            span {
+                border: $border-width $border-type $primary-colour;
+                background: $button-color;
+                color: $button-background;
+            }
+		}
+        .actions-toolbar {
+            margin-top: $margin;
+            text-align: center;
+        }
+	}
+}

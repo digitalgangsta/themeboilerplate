@@ -1,0 +1,38 @@
+<script type="text/javascript">
+// require(['instafeed'], function(Instafeed){ 
+//     var userFeed = new Instafeed({
+//         get: 'user',
+//         userId: '2885170046',
+//         limit: '6',
+//         accessToken:'2885170046.1677ed0.bb658414204a412c9f7429036e1c6177',
+//         width: '260px',
+//         height: '260px',
+//         resolution: 'standard_resolution',
+//         template: '<a href="{{link}}" class="insta-item" target="_blank" style="background:url({{image}}) no-repeat center/cover;"></a>'   
+//     });
+//     userFeed.run();
+// });    
+</script>
+<style type="text/css">
+    .instafeed {
+        display: flex;
+        width: 100%;
+    }
+    .insta-item {
+        width: calc(100vw / 6);
+        height: calc(100vw / 6);
+    }
+    @media (max-width: 992px) {
+        .insta-item:nth-child(n+5) {
+            display: none;
+        }
+
+        .insta-item {
+            width: calc(100vw / 4);
+            height: calc(100vw / 4);
+        }
+    }    
+</style>
+<div id="instafeed" class="instafeed">
+  
+</div> 

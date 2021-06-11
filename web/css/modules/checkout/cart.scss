@@ -1,0 +1,449 @@
+
+/* ============================================ *
+
+1- Cart Page Layout 
+2- Cart Summary General
+3- Cart Block Discount
+4- Cart Block GiftCard
+
+ * ============================================ */
+ 
+
+/* ============================================ *
+ * Cart Page Layout
+ * ============================================ */
+.checkout-cart-index {
+	.page-main {
+		@include make-container;
+	}
+}
+.cart-container {
+	@include make-row;
+	.block {
+			
+		&.shipping {
+			display: none; 
+		}
+
+		.title {
+			font-size: $font_size-lg;
+			padding: 15px 0;
+			border-bottom: $border-default;
+			cursor: pointer; 
+			strong {
+				font-weight: normal;
+			}
+			position: relative;
+			@include font-icon-after('\e907');
+			&:after {
+				width: 14px;
+				height: 14px;
+				position: absolute;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+			}
+		}
+		
+
+
+		.content {
+			display: none;
+			padding: 15px 0;
+			border-bottom: $border-default;
+
+		}
+		.actions-toolbar {
+			text-align: center;
+		}
+
+		// whene the title is active 
+		&._active,
+		&.active {
+			.title {
+				@include font-icon-after('\e90a');
+			}
+			.content {
+				display: block;
+			}
+		}
+	}
+}
+
+
+/* ============================================ *
+ * Cart Summary
+ * ============================================ */
+.cart-summary-wrap {
+
+	@include make-col-ready;
+    @include media-breakpoint-up(md) {
+        @include make-col(3);
+    }
+	order: 2;
+}
+
+.cart-summary {
+
+    text-align: left;
+	background: #eee; //remove 
+	padding: 15px;
+	
+	margin-bottom: auto; // keep
+	.summary.title {
+		//@include visuallyhidden;
+		@include heading-3;
+		display: block;
+		padding-bottom: 15px;
+	}
+
+	.cart-totals {
+		border-bottom: $border-default; 
+		strong {
+			font-weight: normal;
+		}
+		tr {
+			background: none;
+			border: 0 none;
+		}
+		th {
+			padding-left: 0;
+			padding-top: 0;
+			border: 0 none;
+			font-size: $font_size-md;
+			text-align: left;
+		}
+		td {
+			padding-right: 0;
+			padding-top: 0;
+			border: 0 none;
+			background: none;
+			font-size: $font_size-md;
+			text-align: right;
+		}
+	}
+
+	.methods {
+		text-align: center;
+		padding-top: 15px;
+		li {
+			padding-bottom: 15px;
+			&:last-child {
+				padding-bottom: 0;
+			}
+		}
+		button {
+			width: 100%;
+			span {
+				width: 100%;
+			}
+		}
+
+	}
+}
+
+/* ============================================ *
+ * Cart Block Discount
+ * ============================================ */
+
+/* ============================================ *
+ * Cart Block GiftCard
+ * ============================================ */
+	
+#gift-options-cart {
+	display: inline-block;
+	padding: 15px 0;
+	text-align: left;
+	width: 100%;
+	
+	.block .title {
+		@include media-breakpoint-down(md) {
+			border-top: $border-default;
+		}
+	}
+}
+.cart-gift-item {
+	.gift-options-title {
+		padding-bottom: 15px;
+	}
+}
+
+
+
+.gift-options-content {
+	@include make-row;
+
+
+	ul.gift-wrapping-list {
+		
+		@include make-col-ready;
+		@include make-col(6);
+		display: flex;
+		
+		li {
+			display: flex;
+			flex: 0 0 50%;
+			width: 49%;
+			// @include make-col-ready;
+			// @include make-col(6);
+		
+			//padding-bottom: 15px;
+			
+			
+			img {
+				border: 2px solid transparent;	
+			}
+			&._active {
+				img {
+					border-color: $colour_secondary;	
+				}
+				
+			}
+		}
+	}
+
+	.gift-wrapping-preview {
+		@include make-col-ready;
+		@include make-col(6);
+	}
+
+	.gift-wrapping-title {
+		@include make-col-ready;
+		@include make-col(12);
+		padding-top: 15px;
+		padding-bottom: 15px;
+		.block-wrap {
+			padding: 15px;
+			background: $colour_secondary;
+			position: relative;
+			font-size: $font_size-md;
+		}
+		button {
+			position: absolute;
+			right: 15px;
+			top: 5px;
+		}
+	}
+	.fieldset {
+		@include make-col-ready;
+		@include make-col(12);
+		padding-top: 15px;
+	}
+
+}
+/* ============================================ *
+ * Cart Table
+ * ============================================ */
+.cart-wrap {
+	@include make-col-ready;
+	@include media-breakpoint-up(md) {
+		@include make-col(9);
+	    padding-right: 60px;
+	}
+	order: 1;
+	text-align: left;
+}
+
+.cart.table {
+	// Table heading	
+	th {
+		text-align: center;
+		@include media-breakpoint-down(md) {
+			@include visuallyhidden;
+		}
+
+		&.item {
+			padding-left: 0;
+			text-align: left;
+		}
+		&.price {
+
+		}
+		&.qty {
+
+
+		}
+		&.subtotal {
+			padding-right: 0;
+
+		}
+	}
+	// Table content
+	.item-info {
+		@include media-breakpoint-down(md) {
+			display: block;
+			width: 100%;
+		}
+	}
+	td {
+		text-align: center;
+		&.item {
+			padding-left: 0;
+			text-align: left;
+			
+			// mobile
+			@include media-breakpoint-down(md) {
+				border-top: $border-default;
+				display: block;
+				width: 100%;
+				padding: 15px 0;
+
+			}
+		}
+
+		&.qty {
+			label {
+				@include visuallyhidden;
+			}
+			.field.qty {
+				display: flex;
+				justify-content: center;
+			}
+		}
+		&.subtotal {
+			padding-right: 0;
+		}
+		
+		// mobile
+		&.price,
+		&.qty,
+		&.subtotal {
+			@include media-breakpoint-down(md) {
+				display: block;
+				float: left;
+				width: 33.3333333333%;
+				padding: 15px 0;
+				border-bottom: 0;
+			}
+		}
+	}
+
+	// content 
+	.product-item-photo {
+		display: table-cell;
+		padding-right: 15px;
+	}
+	.product-item-details {
+		display: table-cell;
+	}
+	.product-item-name {
+		@include heading-4;
+		display: block;
+		font-weight: normal;
+		padding-bottom: 15px;
+	}
+	.item-options {
+		display: block;
+		dt {
+			display: block;
+			float: left;
+			padding-right: 5px;
+			clear: left;
+			font-weight: bold;
+			&:after {
+				content: " :";
+			}
+		}
+		dd {
+			display: block;
+			float: left;
+			
+		}
+	}
+
+	.cart-price {
+		.price {
+			font-size: $font_size-lg;
+		}
+	}
+}
+
+
+/* ============================================ *
+ * Cart - Crossel
+ * ============================================ */
+
+// should use same styling from (products-grid)
+.block {
+	&.crosssell {
+		@include make-container;
+		padding: 120px 0;
+
+		.block-title {
+			display: block;
+			padding-bottom: 30px;
+		}
+	}
+}
+
+		/////////////////////
+
+		// .product-items {
+  //    		.product-item {
+  //    			text-align: left;
+  //    			.price-box{
+  //    				margin: 10px 0;
+  //    			}
+  //    			.short{
+  //    				display: flex;
+  //    				margin: 10px 0;
+  //    				.reviews-actions{
+  //    					margin-top: 0;
+  //    				}
+  //    				@include media-breakpoint-down(xs) {
+		//         		justify-content: center;
+	 //     			}
+  //    			}
+  //    			@include media-breakpoint-down(sm) {
+  //    				@include make-col(6);
+  //    			}
+  //    			@include media-breakpoint-down(xs) {
+	 //        		@include make-col(12);
+	 //        		text-align: center;
+  //    			}
+  //    		}
+		// }
+		// .product-item-actions{
+  //    		.actions-secondary{
+	 //     		.wishlist{
+		//      		margin: 10px 0 20px 0;
+		// 			span{
+		// 				font-size: 15px;
+		// 				cursor: pointer;
+		// 			}
+		// 			.split{
+		// 				width: unset;
+		// 			}
+		// 			.change{
+		// 				width: unset;
+		// 				margin-left: 7px;
+		// 			}
+		// 			.items{
+		// 				display: none;
+		// 			}
+		// 			@include media-breakpoint-down(xs) {
+		//         		justify-content: center;
+	 //     			}
+		//      	}
+		//      	.wishlist.active{
+		//      		.items{
+		//      			display:  -webkit-box;
+		//      			.item{
+		//      				padding: 8px 20px;
+		//      			}
+		//      		}
+		//      	}
+		//      	.tocompare{
+		//      		span{
+		//      			padding: 10px 27px;
+		//      			background: $primary-colour;
+  //           			color: #fff; 
+  //           			font-size: 15px; 
+		//      		}
+		//      	}
+	 //     	}
+  //    	}
+		 
+// 	}
+// }

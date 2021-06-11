@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <!-- Remove blocks -->
+        <referenceBlock name="rss.link" remove="true" />
+        <referenceBlock name="category.image" remove="true" />  <!-- page bulider  -->
+        <referenceBlock name="category.product.addto.compare" remove="true" />
+
+        <!-- Move Category title to category-view to show before page builder  -->
+        <move element="page.main.title" destination="category.view.container" before="-"/>
+        
+        <!-- show category view inside product list column -->
+        <move element="category.view.container" destination="content" before="-"/>
+        
+
+    </body>
+</page>

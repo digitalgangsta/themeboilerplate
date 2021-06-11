@@ -1,0 +1,39 @@
+/* ============================================ *
+ * Breadcrumbs
+ * ============================================ */
+// Breadcrumb size
+
+$breadcrumb_font-size: 14px;
+$breadcrumb_font-colour: $font_colour-default;
+
+.breadcrumbs {
+	@include make-container;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	text-align: left;
+	z-index: 99;
+	
+	ul {
+		display: flex;
+	}
+
+	li {
+		font-size: $breadcrumb_font-size;
+
+		a {
+			color: $font_colour-default;
+			text-decoration: none;
+			position: relative;
+			&:after {
+				@include font-icon('\e909');
+				font-size: 12px;	
+			}
+			
+		}
+		&:last-child {
+			strong { 
+				 font-weight: normal;
+			}
+		}
+	}
+}

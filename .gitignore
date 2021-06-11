@@ -1,0 +1,57 @@
+/node_modules
+/.grunt
+/Gruntfile.js
+/package.json
+/web/css/styles.css
+/web/css/styles.min.css
+/web/css/styles.css.map
+
+/DIRT
+
+#==================#
+#     Files        #
+#==================#
+# ignore compiled files
+.*
+
+!.htaccess
+!.downloader
+
+# track this file .gitignore (i.e. do NOT ignore it)
+!.gitignore
+
+# ignore all files that start with ~
+~*
+
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# ignore packaged files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.tgz
+*.tar.gz
+*.sql
+
+# design files 
+*.psd
+
+#==================#
+#    Log files     #
+#==================#
+*.log
+error_log
+access_log
+.sass-cache
+/tools
+/.dirt

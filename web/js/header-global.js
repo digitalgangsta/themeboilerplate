@@ -1,0 +1,1 @@
+define(["jquery"],function(t){"use strict";t(".header-controls .controls").click(function(){t(".header-controls li").not(t(this).parent("li")).removeClass("active"),t(this).parent("li").toggleClass("active"),t(t(this).data("target")).toggleClass("active")}),t(".nav-sections-item-title").on("click",function(){t(".nav-toggle").click()})});

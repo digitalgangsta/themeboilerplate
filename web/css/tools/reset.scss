@@ -1,0 +1,76 @@
+/* ============================================ *
+ * Reset
+ * ============================================ */
+*,
+*:before,
+*:after { 
+	margin: 0;
+	padding: 0;
+	outline: none;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+			box-sizing: border-box;
+}
+
+body { 
+	background: $body_background-colour;
+	color: $font_colour-default;
+
+	// fonts
+	font-size: $font_size-default;
+	line-height: $font_line-height-default;
+	font-family: $font_family-deafult; 
+	text-align: center;
+}
+
+img {
+	border: 0 none;
+	-ms-interpolation-mode: bicubic;
+	vertical-align: top;
+	max-width: 100%;
+}
+
+a { 
+	color: $link_color;
+	text-decoration: $link_text-decoration;
+	&:hover { 
+		text-decoration: $link_hover-text-decoration;
+		color: $link_hover-color;
+	}
+	&:focus {
+		outline:0;
+	}
+}
+
+
+/* ============================================ *
+ * Lists
+ * ============================================ */
+ul,
+ol { list-style:none; }
+
+
+/* ============================================ *
+ * Tools
+ * ============================================ */
+.hidden       { display:block !important; border:0 !important; margin:0 !important; padding:0 !important; font-size:0 !important; line-height:0 !important; width:0 !important; height:0 !important; overflow:hidden !important; }
+.nobr         { white-space:nowrap !important; }
+.wrap         { white-space:normal !important; }
+.a-left       { text-align:left !important; }
+.a-center     { text-align:center !important; }
+.a-right      { text-align:right !important; }
+.v-top        { vertical-align:top; }
+.v-middle     {vertical-align:middle;float: right;padding-left: 20px;display: inline-block;}
+.f-left,
+.left         { float:left !important; }
+.f-right,
+.right        { float:right !important; }
+.f-none       { float:none !important; }
+.f-fix        { float:left; width:100%; }
+.no-display   { display:none; }
+.no-margin    { margin:0 !important; }
+.no-padding   { padding:0 !important; }
+.no-bg        { background:none !important; }
+
+::-moz-selection { background: $body_selection-colour; text-shadow: none; }
+::selection { background: $body_selection-colour; text-shadow: none; }

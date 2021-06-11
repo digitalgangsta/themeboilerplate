@@ -1,0 +1,117 @@
+/* ============================================ *
+ * Magento Swatches
+ * ============================================ */
+.swatch-opt {
+  margin: 15px 0;
+  padding: 15px 0;
+  border-top: $border-default;
+  border-bottom: $border-default;
+}
+
+input.swatch-input {
+  @include visuallyhidden;
+}
+
+.swatch-attribute {
+  margin-bottom: 15px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}  
+
+// labels 
+.swatch-attribute-label {
+  font-size: $font_size-md;
+  font-weight: normal;
+  line-height: 1;
+}
+.swatch-attribute-selected-option {
+  padding-left: 5px;
+  font-weight: bold;
+}
+
+// swatches
+.swatch-attribute-options {
+  display: flex;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+.swatch-option {
+  text-align: center;
+  line-height: 35px;
+  width: 35px;
+  height: 35px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border: $border-default;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.swatch-option {
+
+  &.selected {
+    background-color: $secondary-colour;
+    border-color: #000;
+  }
+  &:not(.disabled):hover {
+    border-color: $colour_primary;
+    color: $colour_primary;
+  }
+}
+
+.swatch-option.image:not(.disabled):hover,
+.swatch-option.color:not(.disabled):hover {
+    //border: 1px solid $secondary-colour;
+}
+
+// disabled 
+.swatch-option.disabled {
+  cursor: default;
+}
+
+.swatch-option.disabled:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: calc(-25% - 2px);
+  width: 3px;
+  height: calc(150% + 4px);
+  transform: rotate(-45deg);
+  transform-origin: 100% 50%;
+  background-color:$secondary-colour;
+}
+
+.swatch-option-loading {
+  content: url("../images/loader-2.gif");
+}
+
+// Tooltip
+.swatch-option-tooltip {
+  @include visuallyhidden;
+}
+/* ============================================ *
+ * Related Swatches
+ * ============================================ */
+.related-swatches {
+  overflow: hidden;
+  padding: $padding 0;
+  border-bottom: $border-width $border-type $border-light-colour;
+  .swatch-attribute {
+    overflow: hidden;
+    margin-bottom: 0;
+  }
+  li {
+    text-align: center;
+    line-height: 22px;
+    width: 34px;
+    height: 34px;
+    padding: $padding/3;
+    img {
+      max-width: 100%;
+    }
+  }
+}

@@ -1,0 +1,159 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /** @var $block \Magento\Checkout\Block\Onepage\Success */ ?>
+
+<div id="checkout" data-bind="scope:'checkout'" class="checkout-container">
+
+    <div class="authentication-wrapper" data-block="authentication" data-bind="visible: isActive()"
+         style="display: none;">
+        <button type="button" class="action action-auth-toggle" data-trigger="authentication">
+            <span data-bind="i18n: 'Sign In'">Sign In</span>
+        </button>
+
+        <!--
+        /**
+         * Copyright © Magento, Inc. All rights reserved.
+         * See COPYING.txt for license details.
+         */
+        -->
+
+        <aside role="dialog" class="modal-custom authentication-dropdown
+       custom-slide
+       " aria-describedby="modal-content-7" data-role="modal" data-type="custom" tabindex="0">
+            <div data-role="focusable-start" tabindex="0"></div>
+            <div class="modal-inner-wrap" data-role="focusable-scope">
+                <header class="modal-header">
+
+                    <button class="action-close" data-role="closeBtn" type="button">
+                        <span>Close</span>
+                    </button>
+                </header>
+                <div id="modal-content-7" class="modal-content" data-role="content">
+                    <div class="block-authentication" style="" data-bind="mageInit: {
+            'Magento_Ui/js/modal/modal':{
+                'type': 'custom',
+                'modalClass': 'authentication-dropdown',
+                'trigger': '[data-trigger=authentication]',
+                'wrapperClass': 'authentication-wrapper',
+                'parentModalClass': '_has-modal-custom _has-auth-shown',
+                'responsive': true,
+                'responsiveClass': 'custom-slide',
+                'overlayClass': 'dropdown-overlay modal-custom-overlay',
+                'buttons': []
+            }}">
+                        <div class="block block-customer-login" data-bind="attr: {'data-label': $t('or')}"
+                             data-label="or">
+                            <div class="block-title">
+                                <strong id="block-customer-login-heading" role="heading" aria-level="2"
+                                        data-bind="i18n: 'Sign In'">Sign In</strong>
+                            </div>
+
+                            <div data-role="checkout-messages" class="messages"
+                                 data-bind="visible: isVisible(), click: removeAll">
+
+                            </div>
+                            <div class="block-content" aria-labelledby="block-customer-login-heading">
+                                <form data-role="login" data-bind="submit:login" method="post" lpformnum="1"
+                                      _lpchecked="1">
+                                    <div class="fieldset"
+                                         data-bind="attr: {'data-hasrequired': $t('* Required Fields')}"
+                                         data-hasrequired="* Required Fields">
+                                        <div class="field field-email required">
+                                            <label class="label" for="login-email"><span
+                                                        data-bind="i18n: 'Email Address'">Email Address</span></label>
+                                            <div class="control">
+                                                <input type="email" class="input-text" id="login-email" name="username"
+                                                       data-bind="attr: {autocomplete: autocomplete}"
+                                                       data-validate="{required:true, 'validate-email':true}"
+                                                       autocomplete="off"
+                                                       style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;);">
+                                            </div>
+                                        </div>
+                                        <div class="field field-password required">
+                                            <label for="login-password" class="label"><span
+                                                        data-bind="i18n: 'Password'">Password</span></label>
+                                            <div class="control">
+                                                <input type="password" class="input-text" id="login-password"
+                                                       name="password" data-bind="attr: {autocomplete: autocomplete}"
+                                                       data-validate="{required:true}" autocomplete="off"
+                                                       style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;);">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="actions-toolbar">
+                                        <input name="context" type="hidden" value="checkout">
+                                        <div class="primary">
+                                            <button type="submit" class="action action-login secondary"><span
+                                                        data-bind="i18n: 'Sign In'">Sign In</span></button>
+                                        </div>
+                                        <div class="secondary">
+                                            <a class="action action-remind"
+                                               data-bind="attr: { href: forgotPasswordUrl }"
+                                               href="http://brmbox.co.uk/theme/customer/account/forgotpassword/">
+                                                <span data-bind="i18n: 'Forgot Your Password?'">Forgot Your Password?</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div data-role="focusable-end" tabindex="0"></div>
+        </aside>
+    </div>
+
+
+    <ul class="opc-progress-bar">
+
+        <li class="opc-progress-bar-item _complete">
+            <span>Shipping</span>
+        </li>
+        <li class="opc-progress-bar-item _complete">
+            <span>Review &amp; Payments</span>
+        </li>
+        <li class="opc-progress-bar-item _active">
+            <span>Success</span>
+        </li>
+    </ul>
+    <div class="opc-wrapper">
+        <div class="checkout-success">
+            <div class="page-title">
+                <h1><?= __('Thank you for you order'); ?></h1>
+            </div>
+            <?php if ($block->getOrderId()):?>
+                <?php if ($block->getCanViewOrder()) :?>
+                    <p><?= __('Your order has been accepted.'); ?></p>
+                    <p><?= __('Order number %1', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeHtml($block->getViewOrderUrl()), $block->escapeHtml($block->getOrderId()))) ?></p>
+                <?php  else :?>
+                    <p><?= __('Your order # is: <span>%1</span>.', $block->escapeHtml($block->getOrderId())) ?></p>
+                <?php endif;?>
+                    <p><?= /* @escapeNotVerified */ __('We\'ll email you an order confirmation with details and tracking info.') ?></p>
+                    <p><?= /* @escapeNotVerified */ __('You can track your order status by creating an account.') ?></p>  
+                    <br/>
+                    <p><?= /* @escapeNotVerified */ __('Best regards,') ?></p>   
+                    <p><?= /* @escapeNotVerified */ __('website team.') ?></p>                     
+            <?php endif;?>
+
+            <?= $block->getAdditionalInfoHtml() ?>
+
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <a class="action primary create-account" href="<?= /* @escapeNotVerified */ $block->getContinueUrl() ?>"><span><?= /* @escapeNotVerified */ __('Create an account') ?></span></a>
+                    <a class="action primary continue" href="<?= /* @escapeNotVerified */ $block->getContinueUrl() ?>"><span><?= /* @escapeNotVerified */ __('Continue Shopping') ?></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,166 @@
+/* ============================================ *
+ * Default
+ * ============================================ */
+button,
+a.action.primary,
+a.action.back {
+	overflow: visible;
+	width: auto;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	background: transparent;
+	cursor: pointer;
+	color: $button_color;
+	vertical-align: middle;
+	line-height: $button_line-height;
+    span { 
+    	display: block;
+		width: 100%;
+		padding: 0 $button_padding;
+		
+		white-space:nowrap;
+		transition: $button_transition;
+		
+		// Text Styles
+		text-align:center;
+		text-transform: $button_text-transform;
+		
+		color: $button_color;
+		font-size: $button_font-size;
+		line-height: inherit;
+		letter-spacing: $font_letter-spacing;
+
+		// Custome Styles
+		border: $button_border-size solid $button_border-color;
+		background: $button_background;
+	}
+
+	&.disabled,
+    &[disabled] {
+    	cursor: default;
+    	pointer-events: none; // Disabling clicks
+
+    	span {
+			background: $button_disabled-background;
+			border-color: $button_disabled-border-color;
+			color: $button_disabled-font-color;
+    	}
+    }
+
+    &:hover {
+		
+    	span {
+    		border-color: $button_hover-border-color;
+    		color: $button_hover-color;
+			background: $button_hover-background;
+			transition: $button_transition;
+			
+    	}
+    }
+
+	&.small {
+		max-width: $button_small-max-width;
+		font-size: $button_small-font-size;
+		width: 100%;
+	}
+	&.medium {
+		max-width: $button_medium-max-width;
+		font-size: $button_medium-font-size;
+		width: 100%;
+	}
+	&.large {
+		max-width: $button_large-max-width;
+		font-size: $button_large-font-size;
+		width: 100%;
+	}
+	&.active {
+		span {
+			color: $button_hover-color;
+			background: $button_hover-background;
+		}
+		&:hover {
+			span {
+				color: $button_color;
+				background: $button_background;
+			}
+		}
+	}
+
+	// Custome Buttons
+    .btn-checkout span {
+
+    }
+    
+    button.btn-checkout.no-checkout {
+
+	}
+}
+/* ============================================ *
+ * Custom Buttons
+ * ============================================ */
+	
+
+ /* ============================================ *
+ * Primary button
+ * ============================================ */
+ 
+.primary{
+	button { 
+		color: $button_color;
+		background: $button_background;
+		height: $button_height;
+		line-height: $button_height;
+		transition: $button_transition;
+        &:hover {
+            color: $button_hover-color;
+            background: $button_hover-background;
+            transition: $button_transition;
+        }
+        span {
+        	color: $button_color;
+            &:hover {
+                color: $button_hover-color;
+                background: $button_hover-background;
+            }
+            &.disabled,
+            &[disabled] {
+                cursor: default;
+                pointer-events: none;
+            }
+
+            &.active {
+                color: $button_hover-color;
+                background: $button_hover-background;
+            }
+    	}
+
+    	@include media-breakpoint-down(sm) {
+    		width: 100%;
+    	}	
+	}
+}
+ /* ============================================ *
+ * Secondary button
+ * ============================================ */
+ .secondary {
+     button{ 
+        color: $button_secondary-colour;
+        background: $button_secondary-background;
+        span{
+		  color: $button_secondary-colour;
+		  font-size: $font_size-sm;
+          background: $button_secondary-background;
+          &:hover {
+              background: transparent;
+              color: $button_secondary-colour;
+          }
+	   }
+     }
+      a{
+		color: $button_secondary-colour;
+		font-size: $font_size-sm;
+		// font-weight: $font-weight-bold;
+	  }
+	 
+ }

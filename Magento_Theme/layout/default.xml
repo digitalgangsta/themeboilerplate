@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <body>
+		
+        <!-- Remove blocks -->
+        <referenceBlock name="authentication-popup" remove="true"/>
+        <referenceBlock name="sidebar.additional" remove="true"/>
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="wishlist_sidebar" remove="true" />
+        
+        <!-- New layout blocks -->
+        <!-- 
+            # <header>
+            - Before header
+            - After header
+            # <main>
+            - Before content
+            - After content
+            # <footer>
+            - Before footer
+            - After footer
+         -->
+        <referenceContainer name="header.container">
+            <container name="before.header" htmlTag="div" htmlClass="before-header" before="-" />
+            <container name="after.header" htmlTag="div" htmlClass="after-header" after="-" />
+        </referenceContainer>
+
+        <referenceContainer name="main.content">
+            <container name="before.content" htmlTag="div" htmlClass="before-content" after="columns.top"/>
+            <container name="after.content" htmlTag="div" htmlClass="after-content" after="-"/>
+        </referenceContainer>
+
+        <referenceContainer name="footer-container">
+            <container name="before.footer" htmlTag="div" htmlClass="before-footer" before="-">
+                <block class="Magento\Framework\View\Element\Template" name="instafeed" before="-" template="Magento_Theme::theme-pages/instafeed.phtml"/>
+                
+                <block class="Magento\Newsletter\Block\Subscribe" name="footer.subscribe" before="footer" template="Magento_Newsletter::footer-subscribe.phtml"/>
+
+            </container>
+
+            <container name="after.footer" htmlTag="div" htmlClass="after-footer" after="-">
+                <block class="Magento\Framework\View\Element\Template" name="global-footer-js" after="-" template="Magento_Theme::theme-pages/global-footer-js.phtml"/>
+            </container>
+            
+        </referenceContainer>
+
+
+        <!-- Move Site messages to Columns Container -->
+        <move element="messages" destination="columns" before="-" />
+
+		<!-- HEADER -->
+		<referenceContainer name="header.container">
+
+            <referenceBlock name="header">
+            <!-- Remove Welcome Message -->
+                <arguments>
+                    <argument name="show_part" xsi:type="string"></argument>
+                </arguments>
+            </referenceBlock>
+            
+			<referenceBlock name="header.panel" remove="true" />
+            
+            <!-- Before Header -->
+            <referenceContainer name="before.header">
+                <!-- Header Top Message -->
+				<block class="Magento\Framework\View\Element\Template" name="header.top.message" before="-" template="Magento_Theme::html/header/header-top.phtml" /> 
+            </referenceContainer>
+
+            <referenceContainer name="header-wrapper" htmlClass="header">
+                <container name="header.wrapper.top" htmlTag="div" htmlClass="header-top">
+                    
+                    <container name="header.row.top" htmlTag="div" htmlClass="header-row">
+                        <block class="Magento\Framework\View\Element\Template" name="header.controls.static" template="Magento_Theme::html/header/header-controls.phtml" after="-" />
+                    </container>                    
+                                        
+                </container>
+                <container name="header.nav" htmlTag="div" htmlClass="header-nav" />
+            </referenceContainer>
+            
+            <!-- After Header -->
+            <referenceContainer name="after.header">
+                <!-- New Holder Container for top links -->
+                <container name="header.links" htmlTag="div" htmlId="header-links" after="-" />
+            </referenceContainer>
+        </referenceContainer>
+        
+        <!-- Remove account tab on mobile nav -->
+        <referenceContainer name="page.top">
+            <referenceBlock name="store.links" remove="true" />
+        </referenceContainer>
+
+        <move element="logo" destination="header.row.top" before="-" />
+        <move element="header.controls.static" destination="header.row.top" after="logo" />
+        <move element="skip_to_content" destination="header.row.top" before="logo" />
+        <move element="navigation.sections" destination="header.nav" before="-" />
+        <move element="store.settings.new" destination="header-wrapper" after="navigation.sections" />
+        
+        <move element="store_language" destination="header.controls" before="-" />
+        <move element="store.settings.currency" destination="header.controls" before="-" />
+
+        <move element="top.search" destination="header-wrapper" before="header.nav"/>
+        <move element="top.links" destination="header.controls.static" before="-"/>
+        <move element="minicart" destination="header.controls.static" after="-" />
+
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+                <!-- not used -->
+                <argument name="logo_img_width" xsi:type="number">113</argument>
+                <argument name="logo_img_height" xsi:type="number">34</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceBlock name="header.links" >
+            <referenceBlock name="catalog.compare.link" remove="true" />
+            <!--
+            <referenceBlock name="register-link" remove="true" />
+            <referenceBlock name="authorization-link" remove="true" />
+            <referenceBlock name="wish-list-link" remove="true" />
+            <referenceBlock name="my-account-link" remove="true" />
+            -->
+        </referenceBlock>
+
+
+    
+
+		<referenceContainer name="footer">
+
+            <referenceContainer name="footer-container">
+                <block class="Magento\Theme\Block\Html\Footer" name="footer" template="html/footer.phtml" />
+
+                <block class="Magento\Framework\View\Element\Template" name="scroll_to_top" as="scroll_to_top" after="-" template="Magento_Theme::html/scroll-to-top.phtml"/>
+            </referenceContainer>
+
+            <referenceBlock name="store_switcher" remove="true" />
+            <referenceBlock name="footer_links" remove="true" />
+            <referenceBlock name="report.bugs" remove="true" />
+            
+		</referenceContainer>
+
+
+		
+	</body>
+</page> 

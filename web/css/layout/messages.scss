@@ -1,0 +1,58 @@
+/* ============================================ *
+ * Message Global Setting
+ * ============================================ */
+[data-bind="scope: 'messages'"] {
+
+	@include make-container;
+}
+div.message {
+	
+	margin: 15px 0;
+	padding: 15px;
+	display: block;
+	position: relative;
+	clear: both;
+	> :first-child::before {
+		margin-right: 15px;
+	}
+	a {
+		
+	}
+}
+
+/* ============================================ *
+ * Error and Warning Message -Red
+ * ============================================ */
+.message.error {
+	background: #fae5e5;
+	color: #e02b27;
+}
+.mage-error,.field-error {
+    color: #e02b27;
+}
+.message.warning {
+	background: #fdf0d5;
+	color: #6f4400;
+}
+
+/* ============================================ *
+ * Success Message - Green
+ * ============================================ */
+.message.success {
+	background: #e5efe5;
+	color: #006400;
+}
+/* ============================================ *
+ * Notice Message - Yellow
+ * ============================================ */
+.message.notice {
+	background: #fdf0d5;
+	color: #6f4400;
+}
+/* ============================================ *
+ * Notice Info - Brown
+ * ============================================ */
+ .message.info {
+	background: #fdf0d5;
+	color: #6f4400;
+}

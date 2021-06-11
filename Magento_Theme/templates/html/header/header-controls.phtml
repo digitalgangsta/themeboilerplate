@@ -1,0 +1,35 @@
+<?php
+/*
+* @category  Theme
+* @package   Bestresponse
+* @author    Best Response Media Developers <dev@bestresponsemedia.co.uk>
+* @copyright 2019 Best Response Media (http://bestresponsemedia.co.uk/)
+* @license   Best Response Media Licence http://bestresponsemedia.co.uk/license/
+* @link      http://bestresponsemedia.co.uk/
+* ┌─┐┌─┐┌─┐┌┬┐ ┬─┐┌─┐┌─┐┌─┐┌─┐┌┐┬┌─┐┌─┐ ┌┐┌┐┌─┐┌─┐┬┌─┐
+* │─│├┤ └─┐ │  ├┬┘├┤ └─┐├─┘│ ││││└─┐├┤  ││││├┤ │ │││─│
+* └─┘└─┘└─┘ ┴  ┴└─└─┘└─┘┴  └─┘┴└┘└─┘└─┘ ┴└┘┴└─┘└─┘┴┴ ┴
+*/
+?>
+<div class="header-controls">
+	<ul>
+		<li class="control-link link-search">
+			<div data-target="#header-search" class="controls">
+				<span class="icon icon-search"></span>
+				<span class="text">Search</span>
+			</div>
+		</li>
+
+		<li class="control-link link-account">
+			<div data-target="#header-links" class="controls">
+				<span class="icon icon-account"></span>
+				<span class="text">My Account</span>
+			</div>
+			<?php echo $block->getChildHtml('top.links'); ?>
+		</li>
+		<li class="control-link link-cart">
+			<?php echo $block->getChildHtml('minicart'); ?>
+		</li>
+	</ul>
+</div>
+<span data-action="toggle-nav" class="action nav-toggle"><span><?= /* @escapeNotVerified */ __('Toggle Nav') ?></span></span>

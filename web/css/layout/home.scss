@@ -1,0 +1,46 @@
+
+/* ============================================ *
+ * Home Page
+ * ============================================ */
+
+.cms-index-index{
+
+//products slider
+    .home-product-slider{
+        li.product-item {
+            max-width: 100%;
+                .swatch-attribute-options {
+                    display: none;
+                }
+                .swatch-attribute {
+                    padding: 0;
+                }
+                .product-reviews-summary.short{
+                    display: none;  
+                }
+            .product-item-inner {
+                    display: block;
+                }
+            .actions-secondary {
+                    display: none;
+                } 
+        }  
+    }
+//blog posts slider
+    .blog-slider{
+                .blog-item {
+                position: relative;
+                }
+                .blog-content {
+                position: absolute;
+                bottom: 40%;
+                width: 100%;
+                text-align: center;
+                }
+                h2.blog-title {
+                    margin-bottom: 10px;
+                    color: $secondary-colour;
+                }
+        }
+
+    }

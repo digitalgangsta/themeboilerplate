@@ -1,0 +1,211 @@
+@import "tools/mixins/_font-style.scss";
+
+/* ============================================ *
+ * Font Face
+ * ============================================ */
+
+// Must use font-display: swap; on any font-face
+
+// @font-face { font-family: 'BellMTStd-Bold';
+//   src:  url('../fonts/font-face/BellMTStd-Bold/BellMTStd-Bold.woff2') format('woff2'),
+//   url('../fonts/font-face/BellMTStd-Bold/BellMTStd-Bold.woff') format('woff');
+//   font-weight: bold;
+//   font-style: normal;
+//   font-display: swap;
+// }
+
+// @font-face { font-family: 'AvenirLT-Book';
+//   src:  url('../fonts/font-face/AvenirLT-Book/AvenirLT-Book.woff2') format('woff2'),
+//   url('../fonts/font-face/AvenirLT-Book/AvenirLT-Book.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+//   font-display: swap;
+// }
+
+/* ============================================ *
+ * Fonts Variables 
+ * ============================================ */
+
+// Font Family
+
+$font_family-primary: open sans,helvetica neue,Helvetica,Arial,sans-serif;
+$font_family-secondary: open sans,helvetica neue,Helvetica,Arial,sans-serif;
+
+$font_heading: $font_family-primary; // heading fonts
+$font_family-deafult: $font_family-secondary; // body font
+
+// Defaults Desktop 
+$font_size-default: 12px;
+$font_size-sm: 10px;
+$font_size-md: 14px;
+$font_size-lg: 16px;
+
+
+$font_line-height-default: 1.5;
+$font_letter-spacing: -0.1px;
+
+// Defaults Mobile 
+$font_size-default-m: 12px;
+// try not to use much
+$font_size-sm-m: $font_size-sm;
+$font_size-md-m: $font_size-md;
+$font_size-lg-m: $font_size-lg;
+
+
+
+/// Font default colour
+$font_colour-default: $colour_primary;
+
+
+/// Font weights
+$font-weight-bold : bold;
+
+
+//input, select, textarea size
+$input-size: 12px;
+$select-size: 20px;
+$textarea-size: 12px;
+//input, select, textarea size Mobile
+$input-size-m: $input-size;
+$select-size-m: $select-size;
+$textarea-size-m: $textarea-size;
+
+
+// Heading size desktop
+
+// font-size no px - it will be converted to rem;
+$h1-d-size: 46;
+$h2-d-size: 34;
+$h3-d-size: 22;
+$h4-d-size: 16;
+$h5-d-size: 14;
+$h6-d-size: 12;
+
+$headline-d: 14px;
+$headline-m: 14px;
+
+$subheader-d: 14px;
+$subheader-m: 14px;
+
+// line-height - default: normal - accept px;
+$h1-d-height: normal;
+$h2-d-height: normal;
+$h3-d-height: normal;
+$h4-d-height: normal;
+$h5-d-height: normal;
+$h6-d-height: normal;
+
+// line-spacing - default: normal - accept px;
+$h1-d-spacing: 0.3px;
+$h2-d-spacing: 0.2px;
+$h3-d-spacing: 0.1px;
+$h4-d-spacing: 0.1px;
+$h5-d-spacing: 0.1px;
+$h6-d-spacing: 0.1px;
+
+// Heading size mobile
+
+// font-size no px - it will be converted to rem;
+$h1-m-size: 46;
+$h2-m-size: 34;
+$h3-m-size: 22;
+$h4-m-size: 16;
+$h5-m-size: 14;
+$h6-m-size: 12;
+
+$h1-m-height: $h1-d-height;
+$h2-m-height: $h2-d-height;
+$h3-m-height: $h3-d-height;
+$h4-m-height: $h4-d-height;
+$h5-m-height: $h5-d-height;
+$h6-m-height: $h6-d-height;
+
+$h1-m-spacing: $h1-d-spacing;
+$h2-m-spacing: $h2-d-spacing;
+$h3-m-spacing: $h3-d-spacing;
+$h4-m-spacing: $h4-d-spacing;
+$h5-m-spacing: $h5-d-spacing;
+$h6-m-spacing: $h6-d-spacing;
+
+
+
+/* ============================================ *
+ * Typography
+ * ============================================ */
+
+@mixin paragraph {
+  @include font-style($font_size-default, $font_line-height-default, $font_letter-spacing);
+}
+
+a {
+  
+}
+@mixin heading {
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeLegibility;
+  color: inherit;
+}
+@mixin heading-1 {
+  @include heading;
+  @include font-style($h1-d-size, $h1-d-height, $h1-d-spacing);
+  font-family: $font_heading;
+}
+
+@mixin heading-2 {
+  @include heading;
+  @include font-style($h2-d-size, $h2-d-height, $h2-d-spacing);
+  font-family: $font_heading;
+}
+
+@mixin heading-3 {
+  @include heading;
+  @include font-style($h3-d-size, $h3-d-height, $h3-d-spacing);
+  font-family: $font_heading;
+}
+
+@mixin heading-4 {
+  @include heading;
+  @include font-style($h4-d-size, $h4-d-height, $h4-d-spacing);
+  font-family: $font_heading;
+}
+
+@mixin heading-5 {
+  @include heading;
+  @include font-style($h5-d-size, $h5-d-height, $h5-d-spacing);
+  font-family: $font_heading;
+
+}
+
+@mixin heading-6 {
+  @include heading;
+  @include font-style($h6-d-size, $h6-d-height, $h6-d-spacing);
+  font-family: $font_heading;
+
+}
+
+/* Headings */
+h1, .h1 { @include heading-1; }
+h2, .h2 { @include heading-2; }
+h3, .h3 { @include heading-3; }
+h4, .h4 { @include heading-4; }
+h5, .h5 { @include heading-5; }
+h6, .h6 { @include heading-6; }
+p, .p { @include paragraph; }
+
+
+@include media-breakpoint-down(md) {
+  h1, .h1 { @include font-style($h1-m-size, $h1-m-height, $h1-m-spacing); }
+  h2, .h2 { @include font-style($h2-m-size, $h2-m-height, $h2-m-spacing); }
+  h3, .h3 { @include font-style($h3-m-size, $h3-m-height, $h3-m-spacing); }
+  h4, .h4 { @include font-style($h4-m-size, $h4-m-height, $h4-m-spacing); }
+  h5, .h5 { @include font-style($h5-m-size, $h5-m-height, $h5-m-spacing); }
+  h6, .h6 { @include font-style($h6-m-size, $h6-m-height, $h6-m-spacing); }
+}
+
+.page-title-wrapper {
+  .page-title {
+    margin-bottom: 30px;
+    text-align: left;
+  }
+}

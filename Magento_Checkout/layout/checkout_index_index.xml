@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="checkout" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <move element="logo" destination="checkout.header.wrapper" before="-" />
+
+       	<!-- footer js -->
+        <container name="after.footer" htmlTag="div" htmlClass="after-footer" after="-">
+            <block class="Magento\Framework\View\Element\Template" name="checkout-footer-js" after="-" template="Magento_Checkout::checkout-footer-js.phtml"/>
+        </container>
+
+        <!-- Custom Footer -->
+        <!-- <referenceContainer name="after.content">
+            <block class="Magento\Framework\View\Element\Template" name="checkout.footer" template="Magento_Checkout::checkout_footer.phtml" />
+        </referenceContainer> -->
+
+       
+    </body>
+</page>

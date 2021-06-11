@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="checkout_cart_item_renderers"/>
+    <body>
+
+        <!-- footer js -->
+        <container name="after.footer" htmlTag="div" htmlClass="after-footer" after="-">
+            <block class="Magento\Framework\View\Element\Template" name="cart-footer-js" after="-" template="Magento_Checkout::cart-footer-js.phtml"/>
+        </container>
+        
+        <!-- Create new wrapper to hold cart, discount and gift -->
+        <referenceContainer name="checkout.cart.container">
+            <!-- create cart summary wrapper to fix bootstrap issue -->
+            <container name="cart.summary.wrap" as="cart.summary.wrap" label="cart.summary.wrap" htmlTag="div" htmlClass="cart-summary-wrap" before="-" />
+            
+            <container name="cart.tabel.wrapper" label="Cart Table Wrapper" htmlTag="div" htmlClass="cart-wrap" after="cart.summary.wrapy" />
+        </referenceContainer>
+
+        <!-- move content to new wrapper above -->
+        <move element="checkout.cart.form" destination="cart.tabel.wrapper" before="-" />
+        <move element="checkout.cart.order.actions.gift_options" destination="cart.tabel.wrapper" after="-" />
+        
+       
+        <move element="cart.summary" destination="cart.summary.wrap" after="-" />
+
+        <!-- Remove GiftRegistry -->
+        <referenceBlock name="giftregistry.cart.link" remove="true" /> 
+        <referenceBlock name="giftregistry.product.mark" remove="true" />
+
+        <!-- Remove Estimate Shipping and Tax block -->
+        <referenceBlock name="checkout.cart.shipping">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="block-summary" xsi:type="array">
+                            <item name="config" xsi:type="array">
+                                <item name="componentDisabled" xsi:type="boolean">true</item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+
+    </body>
+</page>

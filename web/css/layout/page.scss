@@ -1,0 +1,46 @@
+////////////////////
+// Page Layout
+.page-wrapper {}
+
+.page-main {}
+
+
+.columns {
+
+}
+.sidebar {}
+.sidebar-main {}
+.sidebar-additional {}
+// 1 column 
+.columns {
+	
+}
+.sidebar {}
+.sidebar-main {}
+.sidebar-additional {}
+
+// 2 columns left 
+
+.page-layout-2columns-left .page-main {
+	@include make-container;
+}
+.page-layout-2columns-left .columns {
+	@include make-row;
+}
+.page-layout-2columns-left .column {
+	
+	@include make-col-ready;
+	@include media-breakpoint-up(md) {
+		@include make-col(9);
+	}
+	order: 2; 
+}
+.page-layout-2columns-left .sidebar {
+	@include make-col-ready;
+	@include media-breakpoint-up(md) {
+		@include make-col(3);
+	}
+	order: 1;
+}
+.page-layout-2columns-left .sidebar-main {}
+.page-layout-2columns-left .sidebar-additional {}

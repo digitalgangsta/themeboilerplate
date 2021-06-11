@@ -1,0 +1,667 @@
+///////////////////////////////////////////////
+// Core
+.mana-overlay {
+  position: absolute;
+  background: white;
+  filter: alpha(opacity=0); /* percent */
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+  z-index: 10000;
+}
+
+#mana-please-wait {
+  position: absolute;
+  color: #d85909;
+  font-size: 1.1em;
+  text-align: center;
+  z-index: 20000;
+
+  p {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    width: 120px;
+    margin-left: -120px;
+    padding: 15px 60px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #3399cc;
+    color: #3399cc;
+    text-align: center;
+    z-index: 20100;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    -ms-box-sizing: content-box;
+
+    img {
+      margin: 10px auto 0;
+    }
+  }
+}
+///////////////////////////////////////////////
+// LayeredNavigationSliders
+.m-slider input{
+    width: 30px;
+    padding: 0;
+    text-align: center;
+}
+
+/* For All */
+.mana-filter-slider { margin: 10px 0 15px; }
+/* Responsive layout */
+.one-filter-column .mana-filter-slider { margin-bottom: 20px;  }
+.one-filter-column .mana-slider-values { line-height: 25px; }
+.one-filter-column .mana-slider-values input { width: 50px; padding: 1px 3px; }
+
+/* Default style - style1 */
+.mana-filter-slider { height: 17px; position: relative;  }
+.mana-filter-slider > .mana-slider-from, .mana-filter-slider > .mana-slider-to { height: 17px; width: 17px; position: absolute; }
+.mana-filter-slider > .mana-slider-span { height: 8px; position: absolute; background: none; border-bottom: 2px solid #969696; margin: 0; }
+.mana-filter-slider > .mana-slider-from { cursor: e-resize; }
+.mana-filter-slider > .mana-slider-to { cursor: w-resize; }
+
+.mana-slider-values {text-align: center; margin-top: 3px; overflow: hidden; }
+.mana-slider-values .mana-slider-min-value { float: left; }
+.mana-slider-values .mana-slider-max-value { float: right;}
+.mana-slider-selected-value {}
+
+/* Style2 */
+.mana-filter-slider.style2 { border: 2px solid #c8c8c8; border-width: 0 1px; }
+.mana-filter-slider.style2 > .mana-slider-span { height: 6px; border-bottom: 5px solid #969696; }
+.mana-filter-slider.style2 > .mana-slider-from, .mana-filter-slider.style2 > .mana-slider-to { height: 17px; width: 5px; background: #26b1e8 none; }
+.mana-filter-slider.style2 > .mana-slider-from { margin-right: 1px; }
+.mana-filter-slider.style2 > .mana-slider-to { margin-left: 1px; }
+/* Touch screen slider style */
+.one-filter-column .mana-filter-slider.style2 > .mana-slider-from,
+.one-filter-column .mana-filter-slider.style2 > .mana-slider-to {
+width:15px;
+height:30px;
+top:-7px;
+}
+/* Style3 */
+.mana-filter-slider.style3 { background: #e6e6e6; }
+.mana-filter-slider.style3,
+.mana-filter-slider.style3 > .mana-slider-span { height: 5px; border: none; }
+.mana-filter-slider.style3 > .mana-slider-span { background: #888; }
+.mana-filter-slider.style3 > .mana-slider-from,
+.mana-filter-slider.style3 > .mana-slider-to,
+.mana-filter-slider.style3:before,
+.mana-filter-slider.style3:after { height: 20px; width: 10px; top:-9px; background: #aaa none; z-index: 4; }
+.mana-filter-slider.style3 > .mana-slider-from,
+.mana-filter-slider.style3 > .mana-slider-to{
+box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.5);
+border:1px solid #ccc;
+background: #eeeeee;
+background: -moz-linear-gradient(top,  #eeeeee 0%, #cccccc 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc));
+background: -webkit-linear-gradient(top,  #eeeeee 0%,#cccccc 100%);
+background: -o-linear-gradient(top,  #eeeeee 0%,#cccccc 100%);
+background: -ms-linear-gradient(top,  #eeeeee 0%,#cccccc 100%);
+background: linear-gradient(to bottom,  #eeeeee 0%,#cccccc 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 );
+}
+.mana-filter-slider.style3:before,
+.mana-filter-slider.style3:after { position: absolute; left: 0; height:22px; top:-8px; width: 5px; background-color: #e6e6e6; display: block; content: ""; z-index: 3;}
+.mana-filter-slider.style3:before{}
+.mana-filter-slider.style3:after { right: 0; left: auto;}
+
+/* Touch screen slider style */
+.one-filter-column .mana-filter-slider.style3:before,
+.one-filter-column .mana-filter-slider.style3:after{
+width:5px;
+height:30px;
+top:-12px;
+}
+.one-filter-column .mana-filter-slider.style3 > .mana-slider-from,
+.one-filter-column .mana-filter-slider.style3 > .mana-slider-to {
+width:28px;
+height:28px;
+top:-14px;
+}
+/* Style4 */
+.mana-filter-slider.style4,
+.mana-filter-slider.style4 > .mana-slider-span,
+.mana-filter-slider.style4 > .mana-slider-from,
+.mana-filter-slider.style4 > .mana-slider-to { border-radius:15px; height:10px; }
+.mana-filter-slider.style4 {
+background:#e3e3e3;
+box-shadow: inset 1px 1px 3px 1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.2);
+border: 1px solid #f2f2f2;
+}
+.mana-filter-slider.style4 > .mana-slider-from,
+.mana-filter-slider.style4 > .mana-slider-to {
+background: #aaa none;
+box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.2);
+width:18px;
+height:18px;
+top:-5px;
+border:1px solid #eee;
+background: #ffffff;
+background: -moz-linear-gradient(top,  #ffffff 0%, #f6f6f6 47%, #ededed 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed));
+background: -webkit-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+background: -o-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+background: -ms-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+background: linear-gradient(to bottom,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
+}
+.mana-filter-slider.style4 > .mana-slider-span {
+background: #838383;
+box-shadow: inset 0px 1px 3px 1px rgba(0,0,0,0.2);
+border: none;
+margin-left: -20px;
+padding-left: 20px;
+}
+/* Touch screen slider style */
+.one-filter-column .mana-filter-slider.style4 > .mana-slider-from,
+.one-filter-column .mana-filter-slider.style4 > .mana-slider-to {
+width:28px;
+height:28px;
+top:-10px;
+}
+///////////////////////////////////////////////
+// LayeredNavigationPositions
+.mana-filter-block-above-horizontal .filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.mana-filter-block-above-horizontal .filter-options-item {
+  padding: 0 20px;
+  flex-basis: 200px;
+  width: 20%;
+  border-bottom: 0; /* Remove the border set on Magento Luma */
+}
+
+.mana-filter-block-above-horizontal .filter-options-content .item {
+  margin: 0;
+}
+
+.mana-filter-block-above-horizontal .filter-options-title {
+  padding: 10px 40px 0 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: auto;
+}
+
+.mana-filter-block-above-horizontal .filter-options-title:after {
+  content: '';
+}
+
+.mana-filter-block-above-menu .filter-options {
+  margin: 10px auto;
+  position: relative;
+}
+
+.mana-filter-block-above-menu .filter-options-item {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 0; /* Remove the border set on Magento Luma */
+  position: relative;
+}
+
+.mana-filter-block-above-menu .filter-options-item.mana-inline-slider {
+  cursor: inherit;
+  padding: 0;
+}
+
+.mana-filter-block-above-menu .mana-inline-slider .filter-options-title {
+  background: none;
+  padding: 0;
+  cursor: inherit;
+  display: inline-block;
+}
+
+.mana-filter-block-above-menu .mana-inline-slider .m-slider {
+  display: inline-flex;
+  padding: 0;
+}
+
+.mana-filter-block-above-menu .mana-inline-slider .mana-filter-slider {
+  width: 130px;
+  min-width: 130px;
+}
+
+.mana-filter-block-above-menu .mana-inline-slider .mana-slider-values {
+  margin-top: 0;
+  margin-left: 5px;
+  top: 8px;
+  position: relative;
+}
+
+.mana-filter-block-above-menu .mana-inline-slider .mana-slider-values.mana-slider-with-range {
+  top: 0;
+}
+
+.mana-filter-block-above-menu .mana-inline-slider .mana-slider-values.mana-slider-range-only {
+  top: -5px;
+}
+
+.mana-filter-block-above-menu .mana-inline-slider .mana-slider-values {
+  margin-top: 0;
+  margin-left: 5px;
+}
+
+.mana-filter-block-above-menu .mana-inline-slider .mana-slider-min-value, .mana-filter-block-above-menu .mana-inline-slider .mana-slider-max-value {
+  display: none;
+}
+
+.mana-filter-block-above-menu .mana-inline-slider .filter-options-content {
+  display: inline-block;
+  height: 20px;
+}
+
+.mana-filter-block-above-menu .filter-options-item.hover {
+  background: #DEE5E8;
+}
+
+.mana-filter-block-above-menu .filter-options-title {
+  
+  /* Reset CSS values that are set in Magento Luma */
+  border-bottom: 0;
+  padding: 0 0 0 20px;
+}
+
+.mana-filter-block-above-menu .filter-options-title:after {
+  /* Reset CSS values that are set in Magento Luma */
+  content: '';
+}
+
+.mana-filter-block-above-menu .filter-options-item:first-child {
+  margin-left: 0;
+}
+
+.mana-filter-block-above-menu .filter-options-content {
+  display: none;
+  margin: 0;
+  padding: 10px;
+}
+
+.mana-filter-block-above-menu .filter-options-item.hover .filter-options-content {
+  display: block;
+  position: absolute;
+  z-index: 9999;
+  background: #f0f0f0;
+  top: 40px;
+  margin-left: -10px;
+  max-width: 200px;
+  border: solid 1px #cccccc;
+}
+
+.mana-filter-block-above-menu .filter-options-content .item {
+  margin: 0 auto;
+  padding: 5px;
+}
+
+// currently shopping by
+
+.mana-filter-block-above-horizontal, .mana-filter-block-above-menu {
+  .filter-current {
+    .items {
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+    }
+
+    .item {
+      padding-left: 8px;
+    }
+
+    .action.remove {
+      position: static;
+    }
+  }
+
+  .filter-actions {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+////////////////////////////////////
+// \LayeredNavigationMobile
+
+/* "Filter" header  */
+.mana-mobile .m-filter-title {
+  background-color: darkgrey;
+  color: white;
+  font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.4;
+  text-rendering: optimizeSpeed;
+  text-transform: uppercase;
+  padding: 7px 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.mana-mobile .block-content {
+  display: none;
+}
+
+.mana-mobile > dl > dt {
+  position: relative;
+}
+
+.mana-mobile.active > dl > dt {
+  border: none;
+}
+
+.mana-mobile .filter-remove {
+  position: absolute;
+  right: 25px;
+  top: 5px;
+  color: initial;
+}
+
+.mana-mobile .filter-clear {
+  position: absolute;
+  top: 7px;
+  right: 30px;
+  color: white;
+  font-weight: normal;
+}
+
+.mana-mobile .action.remove:after{
+  content: 'X';
+  font-size: 10px;
+  font-family: Arial, "Helvetica Neue", Verdana, Arial, sans-serif;
+  font-weight: bold;
+  line-height: 20px;
+  width: 100%;
+}
+
+.mana-mobile .action.remove:hover {
+  background-color: darkgrey;
+  color: white;
+  text-decoration: none;
+}
+
+.mana-mobile .action.remove {
+  font: 0/0 a;
+  display: inline-block;
+  width: 20px;
+  border: 1px solid #ededed;
+  text-align: center;
+  text-shadow: none;
+  color: inherit;
+}
+
+.mana-mobile .block-content dl:last-child {
+  border-bottom: 1px solid #ccc;
+}
+
+.mana-mobile .block-content dl:first-child dt {
+  border-top: none;
+}
+
+.mana-mobile dl, .mana-mobile dt, .mana-mobile dd {
+  margin: 0;
+  padding: 0;
+}
+
+.mana-mobile .m-applied-filters .item {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.mana-mobile .block-content dd .m-accordion-container, .mana-mobile .m-applied-filters {
+  padding: 10px 5px;
+  margin: 0;
+  background: transparent;
+  border: 1px solid #ccc;
+  border-bottom: none;
+}
+
+.mana-mobile .m-applied-filters {
+  border-bottom: 1px solid #ccc;
+  border-top: none;
+}
+
+.mana-mobile .collapse-indicator {
+  position: absolute;
+  right: 10px;
+  width: 9px;
+  
+}
+
+.mana-mobile .block-content dl.active .collapse-indicator, .mana-mobile.active .m-filter-title .collapse-indicator {
+  
+}
+
+.mana-mobile .block-content dt {
+  cursor: pointer;
+  display: block;
+  padding: 7px 10px !important;
+  position: relative;
+  margin: 0;
+  border: 1px solid #ccc;
+  background-color: #f4f4f4;
+  border-bottom: none;
+  text-transform: uppercase;
+}
+
+.mana-mobile .swatch-attribute-options {
+  margin-top: 0;
+}
+
+/* Hide "Shop By" button */
+.mana-mobile .filter-title {
+  display: none;
+}
+
+/* Display "Shopping Options" */
+.mana-mobile .filter-subtitle {
+  display: block;
+}
+
+/* Display all the options on mobile navigation*/
+.mana-mobile .filter-options {
+  display: block;
+}
+
+.mana-mobile .swatch-attribute-options {
+  margin-top: 0;
+}
+.mana-mobile .filter-options-content a {
+  margin-left: 0;
+}
+
+.mana-mobile .filter-options-content .item:first-child, .mana-mobile .filter-options-content .item:last-child {
+  margin: 0;
+}
+.mana-mobile .filter-options-content .item {
+  margin: 10px 0;
+}
+
+.mana-mobile {
+  display: none;
+}
+
+.mana-mobile-layered-navigation-enabled {
+  .mana-filter-block {
+    display: none;
+  }
+  .mana-filter-block.mana-mobile {
+    display: block;
+  }
+  .columns {
+    padding-top: 0;
+  }
+  .page-products .sorter {
+    position: relative !important;
+    top: -25px !important;
+  }
+}
+
+
+///////////////////////////////////
+// \LayeredNavigationCategoryTree
+.mana-filter-category-tree {
+  &, & ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  li > ul , & .mana-tree-item {
+    padding-left: 15px;
+  }
+
+  li.mana-collapsed > ul {
+    display:none;
+  }
+
+  li.mana-expanded > .mana-tree-item {
+    
+  }
+  li.mana-expanded > .mana-tree-item:hover {
+    
+  }
+
+  li.mana-collapsed > .mana-tree-item {
+    
+  }
+  li.mana-collapsed > .mana-tree-item:hover {
+    
+  }
+
+  li.mana-expanded > .mana-tree-item, li.mana-collapsed > .mana-tree-item {
+    cursor: pointer;
+  }
+  
+  a {
+    text-decoration: underline;
+    padding: 0;
+    margin: 0;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+.mana-parents-children .mana-children {
+  padding-left: 10px;
+}
+/////////////////////////////////////////
+// \LayeredNavigationCheckboxes
+ol.mana-filter-checkboxes a {
+    padding-left: 20px;
+    text-decoration: none;
+}
+ol.mana-filter-checkboxes a.unchecked {
+    
+}
+ol.mana-filter-checkboxes a.checked {
+    
+}
+ol.mana-filter-checkboxes a.unchecked:hover {
+    
+}
+ol.mana-filter-checkboxes a.checked:hover {
+    
+}
+
+/////////////////////////////////////
+// \LayeredNavigationShowMore
+.manadev-expandable-filter.outer-container {
+  overflow:hidden;
+  transition-property: height;
+}
+
+.manadev-show-more {
+  text-align: right;
+  font-size: 12px;
+  padding-top: 5px;
+}
+
+.manadev-expandable-filter.outer-container.scrollbar {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  //padding: 2px 0 2px 5px !important;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.mana-filter-block.mana-filter-block-above-menu .manadev-expandable-filter.outer-container.scrollbar {
+  border: 0;
+}
+.mana-filter-block.mana-mobile .manadev-expandable-filter.outer-container.scrollbar {
+  border-bottom: 0;
+}
+
+.manadev-option-search {
+  margin: 5px 0 0;
+}
+
+.mana-no-match {
+  display: none;
+}
+
+
+
+/////////////////////////////////
+// \LayeredNavigationAjax
+.mana-mobile .mana-apply-filters {
+  position: absolute;
+  top: 7px;
+  right: 90px;
+  color: white;
+  font-weight: normal;
+}
+
+.mana-filter-block-above-horizontal .mana-apply-filters {
+  position: absolute;
+  top: -21px;
+  right: 10px;
+}
+
+.mana-filter-block-above-menu .mana-apply-filters {
+  position: absolute;
+  top: -30px;
+  right: 10px;
+}
+
+.sidebar .mana-filter-block .mana-apply-filters {
+  display: block;
+  margin-top: 18px;
+  font-weight: normal;
+}
+
+/////////////////////////
+// \LayeredNavigation
+.filter-options-content .mana-selected.mana-tree-item,
+.filter-options-content .mana-selected.item a,
+.filter-options-content .mana-selected.item .count,
+.filter-options-content .mana-selected.item .label {
+    color: #ff5501;
+}
+
+.mana-filter-block {
+    position: relative;
+}
+
+/////////////////////////
+// \LayeredNavigationradio
+.mana-filter-radio {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+}
+
+.mana-filter-radio .item {
+  margin: 10px;
+  padding: 0;
+}

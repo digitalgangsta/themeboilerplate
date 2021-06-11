@@ -1,0 +1,35 @@
+/* ============================================ *
+ * Contact Page
+ * ============================================ */
+.contact-index-index{
+    .page-title-wrapper{
+       text-align: center;
+    }
+    .column:not(.sidebar-additional){
+      .form{
+         &.contact{
+           @include make-col-ready;
+           @include media-breakpoint-up(lg) {
+             @include make-col(6);
+           }
+           @include media-breakpoint-up(md) {
+             @include make-col(8);
+           }
+           @include media-breakpoint-down(md) {
+             @include make-col(12);
+           }
+            float: none !important;
+            margin: auto;
+         }
+        .label{
+          text-align: left;
+        }
+        textarea{
+          width: 100%;
+        }
+        .actions-toolbar {
+           margin-bottom: $margin;
+        }
+        }
+   }
+}

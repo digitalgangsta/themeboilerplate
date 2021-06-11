@@ -1,0 +1,30 @@
+/* ============================================ *
+ * Font Style
+ * ============================================ */
+// see more
+// https://codepen.io/vajkri/pen/QwvLgg
+
+// how to use
+
+//@include font-style(size, height, spacing);
+
+
+@mixin font-size($sizeValue: 14){
+  font-size: $sizeValue + px; //fallback for old browsers
+  font-size: (0.0625 * $sizeValue) + rem;
+}
+  
+@mixin line-height($heightValue: normal){
+  line-height: $heightValue; //fallback for old browsers
+  //line-height: (0.0625 * $heightValue) + rem;
+}
+@mixin letter-spacing($spacingValue: normal){
+  letter-spacing: $spacingValue;
+}
+
+  
+@mixin font-style($sizeValue, $heightValue, $spacingValue) {
+  @include font-size($sizeValue);
+  @include line-height($heightValue);
+  @include letter-spacing($spacingValue);
+}

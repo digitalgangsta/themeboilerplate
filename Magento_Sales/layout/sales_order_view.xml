@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  
+    <body>
+        <!--for adding wrap wrap around title , order links and order content -->
+        <referenceContainer name="content">
+            <container name="orders-view-content"  htmlTag="div" htmlClass="orders-view-content" before="-" />
+        </referenceContainer>
+        <move  element="page.main.title" destination="orders-view-content" />
+        <move  element="sales.order.info.links" destination="orders-view-content" after="page.main.title" />
+        <move  element="sales.order.view" destination="orders-view-content" after="sales.order.info.links" />
+    </body>
+</page>

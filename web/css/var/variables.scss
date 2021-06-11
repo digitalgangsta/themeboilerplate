@@ -1,0 +1,165 @@
+/* ============================================ *
+ * Margins & Paddings
+ * ============================================ */
+
+$padding: 15px;
+$margin: 15px;
+
+
+/* ============================================ *
+ * Grid
+ * ============================================ */
+
+// what is this for ?????
+$screen-xs-min: 576px;
+$screen-sm-min: 768px;
+$screen-md-min : 992px;
+$screen-lg-min : 1200px;
+$screen-xl-min : 1440px;
+
+// Containers max width
+$max-widths-xs-min: 540px;
+$max-widths-sm-min: 720px;
+$max-widths-md-min : 960px;
+$max-widths-lg-min : 1190px; // Containers max-width
+
+
+$grid-columns : 12;
+$grid-gutter-width : $padding * 2; //
+
+
+/* ============================================ *
+ * Typography
+ * ============================================ */
+
+
+//price size // remove
+$price-size: 20px;
+$old-price-size: 14px;
+
+//label size
+$label-size: 12px;
+
+
+
+/* ============================================ *
+ * Colours 
+ * ============================================ */
+$colour_primary: #000; // used on body font
+$colour_secondary: #9b9b9b;
+
+$primary-colour: $colour_primary; // dont use
+$secondary-colour: $colour_secondary; // dont use
+
+
+
+
+
+
+
+
+// $font-colour-light: $primary-colour;
+
+//body background-colour and selection color
+$body_background-colour: #fff;
+$body_selection-colour: #f00;
+
+//footer colors
+// $footer-background-colour: #000;
+// $footer-text-colour: #fff;
+// $footer-link-colour: #fff;
+
+//header colors
+$header-background-colour: #fff;
+$header-text-colour: #000;
+$header-link-colour: #000;
+
+
+
+// Links
+//$link-font: $link_font-default;
+$link_color: #000;
+$link_hover-color: #000;
+$link_hover-text-decoration: none;
+$link_active-color: #000;
+$link_visited-color: #000;
+$link_text-decoration: none;
+
+// Border
+$border-width: 1px;              
+$border-type: solid;              
+
+$border_colour-default: $colour_secondary;
+$border_colour-light: $colour_secondary;
+$border_colour-dark: $colour_secondary;
+
+
+// final default border 
+$border-default: $border-width $border-type $border_colour-default;
+$border-default-light: $border-width $border-type $border_colour-light;
+$border-default-dark: $border-width $border-type $border_colour-dark;
+
+//////////////////////////
+$border-colour: $border_colour-default; // dont use
+$border-light-colour: $border_colour-light;
+//////////////////////////
+
+
+
+
+
+//sidebar
+$sidebar-bk:#eee;
+
+/* ============================================ *
+ * Buttons
+ * ============================================ */
+
+// General
+$button_height : 40px;
+$button_padding : 15px; // padding left and right
+$button_color: #fff;
+
+$button_background: #000;
+
+
+$button_font-size: 15px;
+$button_line-height : $button_height; // button Height
+$button_text-transform : normal; // uppercase/lowercase
+$button_text-decoration : none;
+$button_border-size: 0;
+$button_border-color: $button_background;
+$button_transition: all 0.8s ease 0s;
+
+// Button Sizes
+$button_small-font-size: $button_font-size;
+$button_small-max-width: 180px;
+
+$button_medium-font-size: $button_font-size;
+$button_medium-max-width: 230px;
+
+$button_large-font-size: $button_font-size;
+$button_large-max-width: 275px;
+
+// Buttons Hover
+$button_hover-color: #fff;
+$button_hover-background: #999;
+$button_hover-border-color: #fff;
+
+// Buttons Primary (CTA) EX: "add to cart" - "got to checkout"
+$button_primary-colour: #fff;
+$button_primary-background: $button_background;;
+
+//Buttons Secondary
+$button_secondary-colour: #000;
+$button_secondary-background: #fff;
+
+//Buttons Colors
+$button_red: #c70101;
+$button_grey:#f3f3f3;
+
+// Disabled Buttons
+$button_disabled-background: $button_background;
+$button_disabled-border-color: $button_background;
+$button_disabled-font-color: $button_color;
+

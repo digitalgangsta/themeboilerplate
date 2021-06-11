@@ -1,0 +1,96 @@
+/* ============================================ *
+ * Font Icons
+ * ============================================ */
+// How to use Defult icons
+// @include font-icon('\f1e2');
+// @include font-icon-before('\f1e2');
+// @include font-icon-after('\f1e2');
+//
+// How to use Theme icons
+// @include theme-icon('\f1e2');
+// @include theme-icon-before('\f1e2');
+// @include theme-icon-after('\f1e2');
+
+$theme-icon: 'bolt-icons';
+
+@mixin font-icon($content) {
+    font-family: 'bolt-icons';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: '#{$content}';
+}
+@mixin font-icon-before($content) { 
+    &:before { 
+        font-family: 'bolt-icons';
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        /* Better Font Rendering =========== */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        content: '#{$content}'
+    }
+}
+@mixin font-icon-after($content) { 
+    &:after { 
+        font-family: 'bolt-icons';
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        /* Better Font Rendering =========== */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        content: '#{$content}'
+    }
+}
+// Theme icons font
+@mixin theme-icon($content) {
+    font-family: $theme-icon;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: '#{$content}';
+}
+@mixin theme-icon-before($content) { 
+    &:before { 
+        font-family: $theme-icon;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        /* Better Font Rendering =========== */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        content: '#{$content}'
+    }
+}
+@mixin theme-icon-after($content) { 
+    &:after { 
+        font-family: $theme-icon;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        /* Better Font Rendering =========== */
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        content: '#{$content}'
+    }
+}

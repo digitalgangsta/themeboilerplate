@@ -1,0 +1,100 @@
+
+/* ============================================ *
+ * Font Icons
+ * ============================================ */
+// How to use
+// @include font-icon('\f1e2');
+// @include font-icon-before('\f1e2');
+// @include font-icon-after('\f1e2');
+
+
+@font-face {
+  font-family: 'bolt-icons';
+  
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+
+  src:	url('../fonts/default-icons/bolt-icons.woff2?4ku5os') format('woff2'),
+    	url('../fonts/default-icons/bolt-icons.woff?4ku5os') format('woff');
+}
+@import "tools/mixins/_font-icons.scss";
+
+.icon-account {
+	@include font-icon-before('\e922');
+}
+.icon-cart {
+	@include font-icon-before('\e91e');
+}
+.icon-search {
+	@include font-icon-before('\e928');
+}
+.icon-menu {
+  @include font-icon-before('\e916');
+}
+.icon-filter {
+  @include font-icon-before('\e913');
+}
+.icon-newsletter {
+  @include font-icon-before('\e914');
+}
+.icon-full-star {
+  @include font-icon-before('\e902');
+}
+.icon-accordion-down {
+  @include font-icon-before('\e907');
+}
+.icon-accordion-up {
+  @include font-icon-before('\e908');
+}
+.icon-arrow-left {
+  @include font-icon-before('\e908');
+}
+.icon-arrow-right {
+  @include font-icon-before('\e909');
+}
+
+
+a.action.edit {
+	&:before{
+		@include font-icon('\e90b');	
+		font-size: 14px; // don't change this
+	}
+}
+a.btn-remove,
+a.action.delete {
+	&:before{
+		@include font-icon('\e91f');	
+		font-size: 14px; // don't change this
+	}
+}
+
+
+.icon-facebook {
+	@include font-icon-before('\e90c');
+	&:hover {
+		color: blue;
+	}
+}
+.icon-twitter {
+	@include font-icon-before('\e921');
+
+	&:hover {
+		color: blue;
+	}
+}
+
+
+
+/* ============================================ *
+* Footer Icons
+* ============================================ */
+.footer .icon-twitter {
+	font-size: 20px;
+}
+.insta-icon {
+	font-size: 20px;
+}
+.footer .icon-facebook {
+	font-size: 22px;
+}
